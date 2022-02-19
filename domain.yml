@@ -1,0 +1,593 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 120
+  carry_over_slots_to_new_session: false
+intents:
+- ask_job:
+    use_entities: true
+- make_reservation:
+    use_entities: true
+- menuQuery:
+    use_entities:
+    - menuItems
+    - food_info
+- inform:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+- chitchat:
+    use_entities: true
+- faq:
+    use_entities: true
+- unavailable_feature:
+    use_entities: true
+- greet:
+    use_entities: true
+- inform_menu_pref:
+    use_entities:
+    - menu_pref
+- ask_menu:
+    use_entities:
+    - menu
+- affirm:
+    use_entities: true
+- stop:
+    use_entities: true
+- subscribe_deals_email:
+    use_entities: true
+- deny:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- reply_welcome:
+    use_entities: true
+- thank:
+    use_entities: true
+- explain:
+    use_entities: true
+- human_handoff:
+    use_entities: true
+- find_shop:
+    use_entities: true
+- inform_issue_urgency:
+    use_entities:
+    - issue_urgency
+- check_reservation:
+    use_entities: true
+- cancel_reservation:
+    use_entities: true
+- cancel_mailing_subscription:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- '* start':
+    use_entities: true
+entities:
+- email
+- food_info
+- issue_urgency
+- menu
+- menuItems
+- menu_pref
+- number
+- time
+- menuItem
+slots:
+  remember_bookdate:
+    type: rasa.shared.core.slots.BooleanSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  reconfirm_cancel:
+    type: rasa.shared.core.slots.BooleanSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  mailing_email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true
+  booking_date:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  check_booking_date:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  book_date:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  book_time:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  booking_email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: false
+    influence_conversation: true
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  issue:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  issue_urgency:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - high
+    - moderate
+    - low
+  menuItems:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  food_info:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: None
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - healthy
+    - allergen
+    - vegan
+    - popular
+  menu_pref:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: None
+    auto_fill: true
+    influence_conversation: true
+    values:
+    - salad
+    - soup
+    - pasta
+    - pizza
+    - burger
+    - beverages
+    - dessert
+  requested_slot:
+    type: rasa.shared.core.slots.CategoricalSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+    values:
+    - remember_bookdate
+    - menu_pref
+    - issue_urgency
+    - issue
+    - email
+    - booking_email
+    - book_time
+    - book_date
+    - check_booking_date
+    - booking_date
+    - mailing_email
+    - reconfirm_cancel
+responses:
+  utter_greet:
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: Hello, I am Linc, a chatbot powered by Rasa. How may I assist you today?
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: Hello, I am Linc. How can I help you today?
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: Hi there! How can I help you today?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_hi:
+  - text: Hi, I'm Linc. I can show you our menu, manage your booking, subscribe you to our weekly deals and answer general query related to our menu...
+  utter_happy:
+  - text: Great, carry on! Don't forget to take our user satisfaction survey before you leave! https://forms.gle/raxPa5hgMZbeRxZ27
+  - text: I’ll let you get back to what you were doing. Please do take our user feedback survey to rate your experience! https://forms.gle/raxPa5hgMZbeRxZ27
+  utter_goodbye:
+  - text: It was nice talking to you, goodbye. Please do take our user feedback survey to rate your experience! https://forms.gle/raxPa5hgMZbeRxZ27
+  - text: Take care, goodbye. Don't forget to take our user satisfaction survey before you leave! https://forms.gle/raxPa5hgMZbeRxZ27
+  utter_sorry:
+  - text: I apologize for not being able to assist you this time
+  - text: So sorry for not being able to assist you this time
+  - text: I am sorry for not being able to assist you this time
+  utter_grattitude:
+  - text: Its my pleasure..
+  - text: Always happy to help..
+  - text: :D
+  utter_thanks:
+  - text: Thank you for the information
+  utter_explain_menu_pref:
+  - text: So that I can show you the type of food that you are craving the most
+  - text: So that I can help you find the kind of food you like
+  utter_explain_remember_bookdate:
+  - text: If you tell me your booking date, I'd be able to get assist you with your request faster...
+  utter_explain_issue_urgency:
+  - text: This information will be helpful for us in our prioritization process.
+  utter_explain_issue:
+  - text: So that I can pass your request to the right customer service agent
+  utter_explain_booking_email:
+  - text: We will send your booking details to this email address
+  utter_explain_book_time:
+  - text: So that we know when you would be visiting us
+  utter_explain_book_date:
+  - text: So that we know when you would be visiting us and check if we have any reservation slots for that date....
+  utter_explain_check_booking_date:
+  - text: So that I can find your reservation date in our database
+  utter_explain_mailing_email:
+  - text: So that I can check if your email in our database
+  utter_explain_email:
+  - text: We will use this email address to contact you
+  utter_explain_reconfirm_cancel:
+  - text: Just making sure that you have made up your mind about this
+  utter_explain_booking_date:
+  - text: So that we know when you would be visiting us
+  utter_are_u_sure:
+  - text: Are you sure you don't want to continue?
+  utter_feature_unavailable:
+  - text: I'm sorry but this feature is unavailable at the moment....
+  - text: I'm sorry, but this feature isn't available right now
+  - text: This feature is currently under development. Sorry for the inconveniece caused...
+  utter_rephrase:
+  - text: I'm afraid I can't understand what you're saying, can your rephrase your sentence please?
+  - text: I don't quite understand what you're saying, can you please rephrase your message?
+  utter_default:
+  - image: https://c.tenor.com/QolXZYS0AccAAAAi/robot-%3F.gif
+    text: Sorry I didn't get that. Can you rephrase?
+  - image: https://c.tenor.com/QolXZYS0AccAAAAi/robot-%3F.gif
+    text: I'm afraid I can't understand what you're saying, can your rephrase your sentence please?
+  - image: https://c.tenor.com/QolXZYS0AccAAAAi/robot-%3F.gif
+    text: I don't quite understand what you're saying, can you please rephrase your message?
+  utter_anything_else:
+  - text: Can I help you with anything else?
+  - text: Can I assist you with anything else?
+  utter_what_u_want:
+  - text: So what do you want to do now?
+  - text: What do you want to do?
+  utter_menu_query_general:
+  - buttons:
+    - payload: i want to see an allergen list
+      title: Allergen List
+    - payload: what are your vegan-friendly options?
+      title: Vegan items
+    - payload: what is your most popular dish?
+      title: Best Sellers
+    - payload: show me ur low calorie meals
+      title: Low Calorie items
+    text: I can provide you the following information about our dishes...
+  utter_show_menu:
+  - buttons:
+    - payload: I want salad
+      title: Salads
+    - payload: I want burger
+      title: Burgers
+    - payload: I want pizza
+      title: Pizza & pasta
+    - payload: i want a drink
+      title: Dessert & Beverages
+    text: What are you in the mood of...?
+  - buttons:
+    - payload: I want salad
+      title: Salads
+    - payload: I want burger
+      title: Burgers
+    - payload: I want pizza
+      title: Pizza & pasta
+    - payload: i want a drink
+      title: Dessert & Beverages
+    text: What are you craving...?
+  utter_menu_pref_not_identified:
+  - text: I'm sorry, I don't think we have that on our menu -- Please try asking again..
+  utter_soup:
+  - image: https://i.imgur.com/bFZ0GVX.png
+    text: Some warm and comfy soup coming right up!
+  utter_salad:
+  - image: https://i.imgur.com/bFZ0GVX.png
+    text: You can find our fresh and healthy salads under this menu
+  utter_burgers:
+  - image: https://i.imgur.com/oNLcUs1.png
+    text: Here you go
+  utter_pizza_pasta:
+  - image: https://i.imgur.com/dxwIeVj.png
+    text: Here are our pizza and pasta options
+  utter_bev:
+  - image: https://i.imgur.com/AkDUKEs.png
+    text: Here are our drinks and dessert options
+  utter_no_pref_menu:
+  - text: Can you specify what kind of food you want.
+  - text: What food are you craving?
+  - text: What do you want to eat?
+  utter_faq/online_order:
+  - text: I'm sorry, I can't help you place an order online
+  - text: I'm sorry, we don't take online orders currently...
+  utter_faq/operating_hours:
+  - text: We are open everyday from 9 am to 10:30 pm
+  - text: We are open daily from 9 am to 10:30 pm
+  - text: Our operating hours are from 9 am to 10:30 pm daily
+  - text: We operate daily from 9 am to 10:30 pm
+  utter_faq/ask_halal:
+  - text: All our products are certified halal.
+  - text: Our products are certified halal
+  utter_faq/ask_covid:
+  - text: |-
+      I am delighted to inform you that our restaurant is currently open for dine-ins for fully vaccinated patrons only. Additionally, the current daily SOP in all our restaurants include:-
+       1. Our crew members are required to wear face masks and gloves. This includes crew members who are assigned to carry out temperature checks of guests and delivery riders.
+       2. After closing hours, we assign a Manager and 4 crew members to carry out detailed cleaning of the store. This covers areas within each restaurant like kitchen, Drive-Thru lane, dining area, and storage areas.
+       3. We encourage the usage of cashless payments in all our restaurants nationwide to minimise physical contact between our crew members and the public.
+  utter_chitchat/ask_bot_challenge:
+  - image: https://c.tenor.com/dCP7OIQWjBcAAAAM/im-a-robot-robot.gif
+    text: I am an e-commerce bot, powered by Rasa.
+  - image: https://c.tenor.com/CJrJCRwZ5WAAAAAM/i-am-robot-dancing.gif
+    text: Beep bop, I'm a bot powered by rasa!
+  utter_tell_job_form:
+  - buttons:
+    - payload: /ask_menu
+      title: Restaurant menu
+    - payload: /menuQuery
+      title: Menu Query
+    text: I can help you with....
+  utter_tell_job:
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: I can help you with....
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: I can do the following things...
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: I can assist you with...
+  utter_chitchat/ask_how_are_you:
+  - image: https://c.tenor.com/KC5HIotG-bgAAAAC/cute-robot.gif
+    text: I'm doing great! Thanks for asking
+  - image: https://c.tenor.com/KC5HIotG-bgAAAAC/cute-robot.gif
+    text: Positive and energized! Thanks for asking!
+  - image: https://c.tenor.com/KC5HIotG-bgAAAAC/cute-robot.gif
+    text: I'm doing alright! Thanks for asking!
+  utter_chitchat/ask_identity:
+  - image: https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif
+    text: My name is Linc!
+  - image: https://cdn.dribbble.com/users/1072784/screenshots/6808787/ast-bot.gif
+    text: You can call me Linc
+  - image: https://cdn.dribbble.com/users/1072784/screenshots/6808787/ast-bot.gif
+    text: I am Linc!
+  utter_out_of_scope/other:
+  - image: https://c.tenor.com/QolXZYS0AccAAAAi/robot-%3F.gif
+    text: I'm sorry, I don't quite understand what you are saying...
+  - image: https://c.tenor.com/i0YXA66pPi8AAAAd/forgot-whoops.gif
+    text: I'm afraid this topic is beyond the scope of my intelligence...
+  - image: https://c.tenor.com/Q9Yo9Ib8nzoAAAAi/robot-confused.gif
+    text: I afraid I can't help you with this matter... 😞
+  - image: https://c.tenor.com/Q9Yo9Ib8nzoAAAAi/robot-confused.gif
+    text: I'm sorry, I haven't learnt how to answer that yet 😥
+  utter_out_of_scope/non_english:
+  - image: https://c.tenor.com/ZWve7_axOWUAAAAC/rolling-eyes-umm.gif
+    text: I'm sorry, I currently understand english only.
+  - image: https://c.tenor.com/i0YXA66pPi8AAAAd/forgot-whoops.gif
+    text: I only understand English, I'm sorry.
+  utter_ask_email_subscription_form_email:
+  - text: May I get your email address please?
+  - text: Please give me your email address
+  - text: To which email address should we send the special deals?
+  utter_thank_email:
+  - text: Thank you for providing me your email address
+  - text: Thank you for the info!
+  utter_already_signedup:
+  - text: Looks like you're already in our mailing list. Please check your spam folder if you can't find our emails.
+  utter_sure_human:
+  - buttons:
+    - payload: /ask_menu
+      title: Menu
+    - payload: /make_reservation
+      title: Book table
+    - payload: /menuQuery
+      title: Menu Query
+    - payload: /subscribe_deals_email
+      title: Weekly mails
+    text: "Are your sure i can't help you? I can answer most of your queries related to our menu or general FAQs. I can even assist you with other tasks like:"
+  utter_mailing_slots:
+  - text: You're all set! Check your inbox at {email} to find our special weekly deals!
+  - text: All done! Check your inbox at {email} to find our special weekly deals!
+  utter_ask_human_handoff_form_email:
+  - text: Alright, can I get your email address please? Someone from our customer support team will reach out to you at this email address
+  utter_ask_human_handoff_form_issue:
+  - text: Now, can you briefly describe what you want to discuss with our agent please? This would be useful for us to connect you to the right agent
+  utter_ask_human_handoff_form_issue_urgency:
+  - buttons:
+    - payload: Low
+      title: Low
+    - payload: Moderate
+      title: Moderate
+    - payload: High
+      title: High
+    text: Finally, what would be the appropiate urgency level of this issue?
+  utter_human_handoff_form_submitted:
+  - text: Your request has been recorded. You will be contacted by our customer support team at {email}
+  utter_booking_form_submitted:
+  - text: All done! Looking forward to see you at our restaurant!
+  utter_ask_booking_form_book_date:
+  - text: May I know the date of your visit please? Please insert in the following format- dd/mm/yyyy
+  - text: So when would the reservation be for? Please insert in the following format- dd/mm/yyyy
+  utter_ask_booking_form_book_time:
+  - text: Great, so what time would you like the reservation for? Please insert in the following format hh:mm .
+  - text: So, what time would you like the reservation? Please insert in the following format hh:mm .
+  - text: Please specify the time for your reservation? Please insert in the following format hh:mm .
+  utter_ask_booking_form_booking_email:
+  - text: Finally, may i get your email address please? We will send your reservation details there.
+  utter_ask_check_reservation_form_remember_bookdate:
+  - text: Do you remember the date of your reservation? If yes, please insert it in the following format- dd/mm/yyyy
+  utter_ask_check_reservation_form_booking_email:
+  - text: Can you give me the email address you used for the booking please?
+  utter_ask_check_reservation_form_check_booking_date:
+  - text: Can you tell me the date of your booking? Please insert in the following format- dd/mm/yyyy
+  utter_ask_cancel_reservation_form_booking_email:
+  - text: Can you give me the email address you used for the booking please?
+  utter_ask_cancel_reservation_form_booking_date:
+  - text: Can you tell me the date of your booking? Please insert in the following format- dd/mm/yyyy
+  utter_ask_cancel_reservation_form_reconfirm_cancel:
+  - text: Are you sure you want to cancel your booking?
+  utter_ask_cancel_mailing_subscription_form_mailing_email:
+  - text: Can you give me the email address you used to sign up for our mailing list?
+  utter_ask_cancel_mailing_subscription_form_reconfirm_cancel:
+  - text: Are you sure you want to unsubscribe? You might miss out on our weekly special deal updates if you choose to do so.
+  utter_help:
+  - text: I can show you our menu, manage your booking, subscribe you to our weekly deals and answer general query related to our menu...
+actions:
+- action_explain_slot
+- action_general_query
+- action_show_menu
+- action_slot_reset
+- action_specific_query
+- action_submit_booking_form
+- action_submit_cancel_mailing_subscription_form
+- action_submit_cancel_reservation_form
+- action_submit_check_reservation_form
+- action_submit_email_subscription_form
+- action_submit_human_handoff_form
+- utter_chitchat
+- utter_faq
+- utter_menu_query_general
+- utter_out_of_scope
+- utter_tell_job
+- validate_booking_form
+- validate_cancel_mailing_subscription_form
+- validate_cancel_reservation_form
+- validate_check_reservation_form
+- validate_email_subscription_form
+- validate_human_handoff_form
+- action_form_job
+forms:
+  email_subscription_form:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+  human_handoff_form:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+      issue:
+      - type: from_text
+      issue_urgency:
+      - entity: issue_urgency
+        type: from_entity
+  booking_form:
+    required_slots:
+      book_date:
+      - entity: time
+        type: from_entity
+      book_time:
+      - entity: time
+        type: from_entity
+      booking_email:
+      - entity: email
+        type: from_entity
+  check_reservation_form:
+    required_slots:
+      booking_email:
+      - entity: email
+        type: from_entity
+      remember_bookdate:
+      - intent: affirm
+        type: from_intent
+        value: true
+      - intent: inform
+        type: from_intent
+        value: true
+      - intent: deny
+        type: from_intent
+        value: false
+  cancel_reservation_form:
+    required_slots:
+      booking_date:
+      - entity: time
+        type: from_entity
+      booking_email:
+      - entity: email
+        type: from_entity
+      reconfirm_cancel:
+      - intent: affirm
+        type: from_intent
+        value: true
+      - intent: inform
+        type: from_intent
+        value: true
+      - intent: deny
+        type: from_intent
+        value: false
+  cancel_mailing_subscription_form:
+    required_slots:
+      mailing_email:
+      - entity: email
+        type: from_entity
+      reconfirm_cancel:
+      - intent: affirm
+        type: from_intent
+        value: true
+      - intent: deny
+        type: from_intent
+        value: false
+e2e_actions: []
