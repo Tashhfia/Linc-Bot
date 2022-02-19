@@ -1,0 +1,1407 @@
+version: "2.0"
+
+stories:
+- story: greeet + user doesnt want to continue subscription
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - intent: stop
+  - action: utter_are_u_sure
+  - or:
+      - intent: stop
+      - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: user doesnt want to continue subscription
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - intent: stop
+  - action: utter_are_u_sure
+  - or:
+      - intent: stop
+      - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: user doesnt want to continue subscription + continues 1
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+      - email: "tester@tes.com"
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_submit_email_subscription_form
+  - action: utter_anything_else
+
+- story: user doesnt want to continue subscription + continues 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: burger
+  - slot_was_set:
+      - menu_pref: burger
+  - action: utter_burgers
+  - intent: inform_menu_pref
+  - action: utter_no_pref_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: soup
+  - slot_was_set:
+      - menu_pref: soup
+  - action: action_show_menu
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+      - email: teser@test.com
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_submit_email_subscription_form
+  - action: utter_anything_else
+
+- story: user doesnt want to continue subscription + continues 3
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+      - email: "tester@tes.com"
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_submit_email_subscription_form
+  - action: utter_anything_else
+
+- story: user doesnt want to continue subscription + continues 3_job
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: ask_job
+  - action: action_form_job
+  - intent: menuQuery
+  - action: utter_menu_query_general
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - food_info: popular
+  - slot_was_set:
+    - food_info: popular
+  - action: action_general_query
+  - slot_was_set:
+    - food_info: null
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+      - email: "tester@tes.com"
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_submit_email_subscription_form
+  - action: utter_anything_else
+- story: user doesnt want to continue subscription + continues 3+ fallback
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+      - email: "tester@tes.com"
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_submit_email_subscription_form
+  - action: utter_anything_else
+- story: chitchat + user doesnt want to continue subscription
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: stop
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: utter_anything_else
+
+- story: faq + user doesnt want to continue subscription
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: utter_anything_else
+
+- story: out of scope + user doesnt want to continue subscription
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: utter_anything_else
+
+- story: interactive_story_1
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+
+- story: interactive_story_2
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: stop
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+
+- story: interactive_story_3
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+
+# cancel subscription stories
+- story: cancel subscription happy path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription happy path 2
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - slot_was_set:
+    - reconfirm_cancel: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription happy path 3
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: testing@test.com
+  - slot_was_set:
+    - mailing_email: testing@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation 1
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: dessert
+  - slot_was_set:
+    - menu_pref: dessert
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+      - email: test@test.com
+  - slot_was_set:
+      - mailing_email: test@test.com
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation 2
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: pasta
+  - slot_was_set:
+    - menu_pref: pasta
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+      - email: test@test.com
+  - slot_was_set:
+      - mailing_email: test@test.com
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: burger
+  - slot_was_set:
+      - menu_pref: burger
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: faq
+  - action: utter_faq
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: affirm
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: salad
+  - slot_was_set:
+      - menu_pref: salad
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: faq
+  - action: utter_faq
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: faq
+  - action: utter_faq
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: affirm
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation 5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+    - reconfirm_cancel: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription happy path  + stop 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: cancel subscription happy path + stop 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: cancel subscription happy path + stop 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: stop
+  - action: utter_are_u_sure
+  - or:
+      - intent: stop
+      - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation + stop 1
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: nasi goreng
+  - slot_was_set:
+    - menu_pref: nasi goreng
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+      - email: test@test.com
+  - slot_was_set:
+      - mailing_email: test@test.com
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: burger
+  - slot_was_set:
+      - menu_pref: burger
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation + stop 2
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: pizza
+  - slot_was_set:
+    - menu_pref: pizza
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation + stop + change of mind 1
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: salad
+  - slot_was_set:
+    - menu_pref: salad
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+      - email: test@test.com
+  - slot_was_set:
+      - mailing_email: test@test.com
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: burger
+  - slot_was_set:
+      - menu_pref: burger
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: affirm
+  - slot_was_set:
+      - reconfirm_cancel: true
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation + stop + change of mind 2
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: salad
+  - slot_was_set:
+    - menu_pref: salad
+  - action: action_show_menu
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+      - email: test@test.com
+  - slot_was_set:
+      - mailing_email: test@test.com
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: faq
+  - action: utter_faq
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation + stop + change of mind 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: reconfirm_cancel
+  - intent: affirm
+  - slot_was_set:
+      - reconfirm_cancel: true
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: cancel subscription form deviation + stop + change of mind 4
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+- story: cancel subscription form deviation + stop + change of mind 4 + fallback
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+- story: cancel subscription form deviation + stop + change of mind 4 + fallback_job
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: ask_job
+  - action: action_form_job
+  - intent: menuQuery
+  - action: utter_menu_query_general
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - food_info: popular
+  - slot_was_set:
+    - food_info: popular
+  - action: action_general_query
+  - slot_was_set:
+    - food_info: null
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+#- story: cancel subscription form deviation + stop + change of mind 4 + fallback_job_form
+#  steps:
+#  - intent: cancel_mailing_subscription
+#  - action: cancel_mailing_subscription_form
+#  - active_loop: cancel_mailing_subscription_form
+#  - slot_was_set:
+#    - requested_slot: mailing_email
+#  - intent: stop
+#  - action: utter_are_u_sure
+#  - intent: deny
+#  - action: cancel_mailing_subscription_form
+#  - active_loop: cancel_mailing_subscription_form
+#  - slot_was_set:
+#      - requested_slot: mailing_email
+#  - intent: inform
+#  - slot_was_set:
+#    - email: test@test.com
+#  - slot_was_set:
+#    - mailing_email: test@test.com
+#  - slot_was_set:
+#    - requested_slot: reconfirm_cancel
+#  - intent: ask_job
+#  - action: action_form_job
+#  - intent: make_reservation
+#  - action: action_form_job
+#  - action: cancel_mailing_subscription_form
+#  - active_loop: cancel_mailing_subscription_form
+#  - slot_was_set:
+#    - requested_slot: reconfirm_cancel
+#  - intent: nlu_fallback
+#  - action: utter_default
+#  - action: cancel_mailing_subscription_form
+#  - active_loop: cancel_mailing_subscription_form
+#  - slot_was_set:
+#    - requested_slot: reconfirm_cancel
+#  - intent: deny
+#  - slot_was_set:
+#      - reconfirm_cancel: false
+#  - slot_was_set:
+#      - requested_slot: null
+#  - active_loop: null
+#  - action: action_submit_cancel_mailing_subscription_form
+#  - action: utter_anything_else
+- story: explain subscription email 1
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+      - email: "test@tes.com"
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_submit_email_subscription_form
+  - action: utter_anything_else
+
+- story: explain 2
+  steps:
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: explain
+  - action: action_explain_slot
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - intent: deny
+  - slot_was_set:
+      - reconfirm_cancel: false
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: explain 6
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: stop
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+
+- story: explain 5
+  steps:
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+
+- story: explain 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+- story: explain 3 + unavailable
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: subscribe_deals_email
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: email_subscription_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_anything_else
+- story: explain 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: explain
+  - action: action_explain_slot
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+
+- story: explain 5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: explain
+  - action: action_explain_slot
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else
+- story: explain 5 + unavalable
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_mailing_subscription
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+    - requested_slot: mailing_email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: cancel_mailing_subscription_form
+  - active_loop: cancel_mailing_subscription_form
+  - slot_was_set:
+      - requested_slot: mailing_email
+  - intent: inform
+  - slot_was_set:
+    - email: test@test.com
+  - slot_was_set:
+    - mailing_email: test@test.com
+  - slot_was_set:
+    - requested_slot: reconfirm_cancel
+  - slot_was_set:
+    - reconfirm_cancel: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_cancel_mailing_subscription_form
+  - action: utter_anything_else

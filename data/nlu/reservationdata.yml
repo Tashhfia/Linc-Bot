@@ -1,0 +1,82 @@
+version: "2.0"
+nlu:
+- intent: make_reservation
+  examples: |
+    - I'd like to make a reservation
+    - i want to book a table
+    - can i make reservation?
+    - book a table for me
+    - reserve a table for me
+    - how to make reservation?
+    - how to book a table?
+    - can you help me with reservation?
+    - I want to book a table for next monday
+    - can i make a reservation online?
+    - please reserve a table for me
+    - book a table for me on 19th December
+    - can you make a reservation for next monday?
+    - i want to make reservation
+    - make reservation
+    - reservation
+    - book table
+    - book seats
+    - book tables
+    - make booking
+    - booking
+    - i want book a table
+    - book a table
+    - can u book a table for me
+    - hi i want to reserve for two people
+- intent: check_reservation
+  examples: |
+    - I want to check my booking status
+    - do I still have my booking on 25th december?
+    - can you confirm my reservation?
+    - can you confirm my booking status?
+    - check my reservation
+    - can i check my reservation?
+    - how to check booking
+    - do i have a booking next week?
+    - i want to know the status of my reservation
+    - i want to know my reservation details
+    - i want to see my booking details
+    - can you confirm if i still have my booking?
+    - i want tocheck booking
+    - i want to check booking
+- intent: cancel_reservation
+  examples: |
+    - i want to cancel my booking
+    - cancel booking
+    - i want to cancel my reservation
+    - please cancel my booking next
+    - remove booking
+    - cancel my reservation on friday
+    - how to delete my booking?
+    - can you help me to cancel my booking?
+    - cancel reservation
+    - drop my reservation
+    - please drop off my next booking
+    - want to cancel booking
+    - i dont want to keep my booking
+    - i want to cancel an upconmin booking
+    - i dont think i can make it to my next booking
+    - i want to cancel reservation
+    - cancl booking on 23-12-21
+    - please cancel my booking
+    - delete booking
+    - delete reservation
+    - can you delte my reservation on 12-12-21
+    - i want to cancel my current booking
+    - i want to cancel my reservation on tuseday
+    - please cancel my booking next friday
+    - remove booking pls
+    - help me cancel my reservation on friday
+    - how to cancel my booking?
+    - can you help me to remove my booking?
+    - delete reservation pleae
+    - please drop my next booking
+    - i want to cancel an upconming booking
+    - i dont think i can make it to my reservation
+    - delete booking pleas
+    - delete reservation ples
+    - can you delete my reservation on 12-12-21

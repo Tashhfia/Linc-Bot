@@ -1,0 +1,235 @@
+version: "2.0"
+
+stories:
+
+- story: ask menu
+  steps:
+    - intent: ask_menu
+      entities:
+      - menu: "menu"
+    - action: utter_show_menu
+
+- story: ask menu no entity found
+  steps:
+    - intent: ask_menu
+    - action: utter_show_menu
+# showing user's requested menu
+- story: no preferance menu
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_menu
+    - action: action_show_menu
+    - intent: inform_menu_pref
+    - action: utter_no_pref_menu
+
+- story: salad
+  steps:
+    - intent: ask_menu
+    - action: action_show_menu
+    - intent: inform_menu_pref
+    - action: utter_no_pref_menu
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: salad
+    - slot_was_set:
+      - menu_pref: salad
+    - action: action_show_menu
+
+- story: soup
+  steps:
+    - intent: ask_menu
+    - action: action_show_menu
+    - intent: inform_menu_pref
+    - action: utter_no_pref_menu
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: soup
+    - slot_was_set:
+      - menu_pref: soup
+    - action: action_show_menu
+- story: soup 2
+  steps:
+    - intent: ask_menu
+    - action: action_show_menu
+    - intent: inform_menu_pref
+    - action: utter_no_pref_menu
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: soup
+    - slot_was_set:
+      - menu_pref: soup
+    - action: action_show_menu
+    - intent: ask_job
+    - action: action_form_job
+- story: salad 4
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: salad
+    - slot_was_set:
+      - menu_pref: salad
+    - action: action_show_menu
+
+- story: soup 4
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: soup
+    - slot_was_set:
+      - menu_pref: soup
+    - action: action_show_menu
+- story: burger 1
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: burger
+    - slot_was_set:
+      - menu_pref: burger
+    - action: action_show_menu
+- story: burger 2
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: burger
+    - slot_was_set:
+      - menu_pref: burger
+    - action: action_show_menu
+
+- story: burgers
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: burger
+    - slot_was_set:
+      - menu_pref: burger
+    - action: action_show_menu
+
+- story: pizza
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: pizza
+    - slot_was_set:
+      - menu_pref: pizza
+    - action: action_show_menu
+
+- story: pizza
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: pasta
+    - slot_was_set:
+      - menu_pref: pasta
+    - action: action_show_menu
+
+- story: beverages
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: beverages
+    - slot_was_set:
+      - menu_pref: beverages
+    - action: action_show_menu
+- story: dessert
+  steps:
+    - intent: inform_menu_pref
+      entities:
+      - menu_pref: dessert
+    - slot_was_set:
+      - menu_pref: dessert
+    - action: action_show_menu
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_menu
+    entities:
+    - menu: menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: salad
+  - slot_was_set:
+    - menu_pref: salad
+  - action: action_show_menu
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: beverages
+  - slot_was_set:
+    - menu_pref: beverages
+  - action: action_show_menu
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: beverages
+  - slot_was_set:
+    - menu_pref: beverages
+  - action: action_show_menu
+  - intent: ask_job
+  - action: action_form_job
+
+- story: menu preference not identified
+  steps:
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: Lorem Ipsum
+  - slot_was_set:
+    - menu_pref: __other__
+  - action: action_show_menu
+
+- story: menu preference not identified 2
+  steps:
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: ayam goreng
+  - slot_was_set:
+    - menu_pref: ayam goreng
+  - action: action_show_menu
+
+#- story: explain why we need food pref
+#  steps:
+#  - intent: ask_menu
+#  - action: utter_show_menu
+#  - intent: inform_menu_pref
+#  - action: utter_no_pref_menu
+#  - intent: explain
+#  - action: utter_explain_menu_pref
+#  - action: utter_anything_else
+- story: interactive_story menu show
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: dessert
+  - slot_was_set:
+    - menu_pref: dessert
+  - action: action_show_menu
+  - intent: inform_menu_pref
+  - action: utter_no_pref_menu
+  - intent: inform_menu_pref
+    entities:
+    - menu_pref: salad
+  - slot_was_set:
+    - menu_pref: salad
+  - action: action_show_menu
+  - intent: ask_job
+  - action: action_form_job
+  - intent: affirm
+  - action: utter_happy
+
+

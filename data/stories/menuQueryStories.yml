@@ -1,0 +1,141 @@
+version: "2.0"
+
+stories:
+
+- story: menu query happy path 1 + menu entity
+  steps:
+    - intent: menuQuery
+      entities:
+      - menu: "menu"
+    - action: utter_menu_query_general
+- story: menu query happy path 1
+  steps:
+    - intent: menuQuery
+    - action: utter_menu_query_general
+- story: menu query happy path 2
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: healthy
+    - slot_was_set:
+        - food_info: healthy
+    - action: action_general_query
+
+- story: menu query happy path 3
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: popularity
+    - slot_was_set:
+        - food_info: popularity
+    - action: action_general_query
+- story: menu query happy path 4
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: vegan
+    - slot_was_set:
+        - food_info: vegan
+    - action: action_general_query
+- story: menu query happy path 5
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: allergen
+    - slot_was_set:
+        - food_info: allergen
+    - action: action_general_query
+- story: menu query general unknown info
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: loremipsum
+    - slot_was_set:
+        - food_info: loremipsum
+    - action: action_general_query
+
+- story: menu query general known info 3
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: vegan
+      - menuItems: VEGGIE LASAGNA
+    - slot_was_set:
+        - food_info: vegan
+        - menuItems: GREEK CHICKPEAS
+    - action: action_specific_query
+
+- story: menu query general known info 1
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: allergen
+      - menuItems: CHEDDAR & MUSHROOM BURGER
+    - slot_was_set:
+        - food_info: allergen
+        - menuItems: GREEK CHICKPEAS
+    - action: action_specific_query
+
+- story: menu query general known info 2
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: healthy
+      - menuItems: GREEK CHICKPEAS
+    - slot_was_set:
+        - food_info: healthy
+        - menuItems: GREEK CHICKPEAS
+    - action: action_specific_query
+
+- story: menu query general known info 4
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: popular
+      - menuItems: apple pie
+    - slot_was_set:
+        - food_info: popular
+        - menuItems: apple pie
+    - action: action_specific_query
+
+- story: menu query general known info 5
+  steps:
+    - intent: menuQuery
+      entities:
+      - food_info: healthy
+      - menuItems: GREEK CHICKPEAS
+    - slot_was_set:
+        - food_info: healthy
+        - menuItems: GREEK CHICKPEAS
+    - action: action_specific_query
+    - intent: thank
+    - action: utter_grattitude
+    - action: utter_anything_else
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: menu query general known info 6
+  steps:
+    - intent: nlu_fallback
+    - action: utter_default
+    - intent: menuQuery
+      entities:
+      - food_info: healthy
+      - menuItems: GREEK CHICKPEAS
+    - slot_was_set:
+        - food_info: healthy
+        - menuItems: GREEK CHICKPEAS
+    - action: action_specific_query
+    - intent: thank
+    - action: utter_grattitude
+    - action: utter_anything_else
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye

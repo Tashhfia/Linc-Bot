@@ -1,0 +1,403 @@
+version: "2.0"
+nlu:
+- intent: menuQuery
+  examples: |
+    - i have a menu related question
+    - i want to make a menu query
+    - i want menu info
+    - i want menu information
+    - menu question
+    - menu query
+    - menu info pls
+    - menu information
+    - can you tell me something about your menu
+    - i have a quetion about your menu
+    - can you give me information about your menu?
+    - i have a question about your menu
+    - what is the [healthiest](food_info) item on your menu?
+    - whats [hot](food_info)?
+    - what's [in demand](food_info)?
+    - whats [popular](food_info)?
+    - what is your most [popular](food_info) dish?
+    - what is the most [haelthy](food_info) item on the menu?
+    - what are your [healthy](food_info) options?
+    - wat are ur [healthy](food_info) options?
+    - show me ur low [calorie](food_info) meals
+    - low [cals](food_info) items only
+    - wat are the [healthy](food_info) items ?
+    - show me the [healthiest](food_info) item on your menu
+    - can you tell me what is the most [healthy](food_info) dish ?
+    - i want to see low [cal](food_info) food
+    - i want [calorie-info](food_info)
+    - give me [calories](food_info) information
+    - i want to know about [cals](food_info)
+    - give me [calorie-information](food_info)
+    - [cal-info](food_info)
+    - do you have [diet](food_info) friendly food?
+    - what are your [diet-friendly](food_info) dishes
+    - [nutritious](food_info) items
+    - [nutritional](food_info) info
+    - [cal](food_info) info
+    - can you tell me which is the most [healthy](food_info) item on your menu?
+    - is pizza [healthy](food_info)?
+    - what is your [healthiest](food_info) pizza?
+    - what r ur [helthy](food_info) options?
+    - what r ur [heltist](food_info) items?
+    - how much [calories](food_info) in your food?
+    - how many [cals](food_info) in your food
+    - [nutritional](food_info) information please
+    - show [calorie](food_info) information
+    - give [cal](food_info) info
+    - what kind of [diet](food_info) friendly items do you have?
+    - [diet-friendly](food_info) items please
+    - i want to know about your [nutritious](food_info) food
+    - [allergen](food_info) list please
+    - do you have an [allergen](food_info) list
+    - can you give me an [allergen](food_info) list
+    - [allergy](food_info) inducing food
+    - show [allergic](food_info) foods
+    - what kinf [nut free](food_info) items do you have
+    - tell me about [nut-free](food_info) dishes only
+    - something free of [nuts](food_info)
+    - i want to see an [allergen](food_info) list
+    - tell me about [seafood](food_info) free items
+    - [seafood-free](food_info) food pls
+    - do you have dishes free of [seafood](food_info)?
+    - what kind of [dairy-free](food_info) items do you have?
+    - do u have [lactose-free](food_info) food?
+    - give me the names of [dairy](food_info) free food only
+    - show [soy](food_info) free items pls
+    - [soy-free](food_info) food please
+    - what are you [vegan](food_info) dishes
+    - what are your [vegan-friendly](food_info) options?
+    - tell me about [vegan](food_info) friendly items
+    - what is [herbivore](food_info) friendly?
+    - [vegetarian](food_info) items please
+    - [veg](food_info)
+    - [veg](food_info) friendly items
+    - what is [popular](food_info)?
+    - [most ordered](food_info) items
+    - [best-sellers](food_info) please
+    - [best-seller](food_info) list pls
+    - what is ur [bestseller](food_info)
+    - what is ur [bestsellers](food_info)
+    - what is most [popular](food_info)
+    - tell me about your [biggest sellers](food_info)
+    - tell me about your [biggest seller](food_info)
+    - what is [most sold](food_info) food
+    - tell me about your [highest sold](food_info) foods
+    - [high popularity](food_info) items please
+    - what are your [most liked](food_info) dishes?
+    - [most-liked](food_info) beverages
+    - [most loved](food_info) pizzas
+    - your [most-loved](food_info) dishes
+    - ur [most wanted](food_info)
+    - what are most [in demand](food_info)
+    - [hot](food_info) items in your menu
+    - what are some [high demand](food_info) items?
+    - do you have an [allergic](food_info) food list
+    - [veg](food_info) only
+    - what's [popular](food_info)?
+    - [best sellers](food_info) please
+    - [best-sellers](food_info) list pls?
+    - what is ur [bestseller](food_info) pizza?
+    - what is [most popular](food_info) burger?
+    - what are your [most liked](food_info) burgers?
+    - what items are [most-loved](food_info) by your customers?
+    - your [most wanted](food_info) items
+    - what's [in demand](food_info)?
+    - [hot](food_info) items in your menu pls
+    - show me [high demand](food_info) items
+    - is the [NASHVILLE HOT Veggie BURGER](menuItems) [vegan](food_info)?
+    - is [BACON CHEDDAR BURGER](menuItems) [vegan](food_info) friendly
+    - [CLASSIC BEYOND BURGER](menuItems) [vegan](food_info)?
+    - may i know if the [SHRIMP SCAMPI](menuItems) [herbivore](food_info)
+    - would you recommend [TACO](menuItems) for a [vegetarian](food_info)?
+    - can you tell me if [BBQ CHICKEN](menuItems) is suitale for [veg](food_info)
+    - can you tell me if [BBQ CHICKEN](menuItems) [meat-free](food_info)?
+    - what are the [allergens](food_info) in the [SUPERONI](menuItems)
+    - [allergen](food_info) in the [CHEDDAR & MUSHROOM BURGER](menuItems)
+    - [Chocolate Éclair](menuItems) [allergens](food_info) list
+    - tell me about the [allergy](food_info) information in [NASHVILLE HOT Veggie BURGER](menuItems)
+    - any [allergic](food_info) inredients in the [CHICKEN SPINOCCOLI PASTA](menuItems)?
+    - I am [allergic](food_info) to seafood, is the [Pumpkin soup](menuItems) safe for me?
+    - is the [VEGGIE LASAGNA](menuItems) [nut](food_info) free?
+    - can you tell me if the [DEEP DISH MAC & CHEESE](menuItems) [nut-free](food_info)
+    - tell me if the [SPICY HAWAIIAN](menuItems) free of  [nuts](food_info)
+    - [CITY WORKS](menuItems) [seafood](food_info) free
+    - [calorie](food_info) info for [CITY WORKS](menuItems)
+    - [seafood-free](food_info)
+    - free of [seafood](food_info)
+    - can you let me know if [Strawberry Cream Puff](menuItems) [lactose](food_info) free
+    - [VEGGIE LASAGNA](menuItems) [lactose-free](food_info) ?
+    - is your [Muffin](menuItems) [dairy](food_info) free
+    - [soy-free](food_info) [MARGHERITA](menuItems)?
+    - is the [DEEP DISH MAC & CHEESE](menuItems) low [cal](food_info)?
+    - how [helthy](food_info) is your [Muffin](menuItems)
+    - is the [Hot Tea](menuItems) most [helthy](food_info)
+    - is your [Cinnamon Roll](menuItems) really the [healthiest](food_info)?
+    - [GREEK CHICKPEAS](menuItems) [heltist](food_info)?
+    - is [SPICY HAWAIIAN](menuItems) most [helthy](food_info)
+    - is the [CHEESE PLEASE](menuItems) most [helthy](food_info)?
+    - is [GREEK CHICKPEAS](menuItem) low [calorie](food_info)
+    - [nutritional](food_info) value for [Bagel with Cream Cheese](menuItems)
+    - [CITY WORKS](menuItems) [calorie](food_info) info
+    - how much [calories](food_info) in your [Apple pie](menuItems)?
+    - how much [cals](food_info) in the [CITY WORKS](menuItems)
+    - give me [CAPRESE](menuItems) burger [calorie](food_info) information
+    - [cals](food_info) for [Chocolate Éclair](menuItems)
+    - is ur [Apple pie](menuItems) [diet](food_info) friendly
+    - is the [MARGHERITA](menuItems) [diet-friendly](food_info)
+    - is [CHEESE PLEASE](menuItems) [nutritious](food_info)
+    - is ur [Apple pie](menuItems) [popular](food_info)
+    - is your [BACON CHEDDAR](menuItems) BURGER [vegan-friendly](food_info)?
+    - hi ..can you tell the most [popular](food_info) menu of today?
+    - [GREEK CHICKPEAS](menuItems) [in-demand](food_info)
+    - is the [HOUSE SALAD](menuItems) [dairy](food_info) free?
+    - [HAIL CAESAR](menuItems) [vegan](food_info)?
+    - [TRADITIONAL POTATO](menuItems) [allergens](food_info)
+    - how [popular](food_info) is the [BROCCOLI QUINOA TABBOULEH](menuItems)
+    - [FOREST MUSHROOM SOUP WITH GARLIC TOAST](menuItems) [soy](food_info) free?
+    - [CREAM OF TOMATO WITH BAKED CARROT CRISPS](menuItems) [veg](food_info) friendly?
+    - [Chicken soup with croutons](menuItems) [healthy](food_info)?
+    - [Pumpkin soup](menuItems) [vegan](food_info)?
+    - [BBQ BACON CHICKEN SANDWICH](menuItems) [meat-free](food_info)
+    - [allergens](food_info) [CAPRESE](menuItems)
+    - [nuts](food_info) free [CAPRESE](menuItems)
+    - [dairy-free](food_info) [BACON CHEDDAR BURGER](menuItems)
+    - [CLASSIC BEYOND BURGER](menuItems) [meat-free](food_info)?
+    - [CHEDDAR & MUSHROOM BURGER](menuItems) [cal](food_info) information 
+    - [NASHVILLE HOT Veggie BURGER](menuItems)
+    - [CHICKEN SPINOCCOLI PASTA](menuItems) [cal-info](food_info)
+    - [SHRIMP SCAMPI](menuItems) [cals](food_info)
+    - [VEGGIE LASAGNA](menuItems) [healthy](food_info)?
+    - [DEEP DISH MAC & CHEESE](menuItems)
+    - [CITY WORKS](menuItems) [in-demand](food_info)?
+    - [cals](food_info) in [SUPERONI](menuItems) 
+    - [CHEESE PLEASE](menuItems) [calories](food_info)
+    - [SPICY HAWAIIAN](menuItems) [cals](food_info)
+    - [MARGHERITA](menuItems) [allergen](food_info) list
+    - [BBQ CHICKEN](menuItems) [meat-free](food_info)?
+    - how [popular](food_info) is the [TACO](menuItems)?
+    - [Muffin](menuItems) free of [dairy](food_info)?
+    - [healthy](food_info) [Bagel with Cream Cheese](menuItems)
+    - is the [Cinnamon Roll](menuItems) [lactose](food_info) free?
+    - no [dairy](food_info) [Fruit Tart](menuItems)
+    - low [cal](food_info) [Chocolate Éclair](menuItems)
+    - [Strawberry Cream Puff](menuItems) free of [dairy](food_info)
+    - [dairy-free](food_info) [Apple pie](menuItems)
+    - [seafood](food_info) free [Hot Tea](menuItems)
+    - [Iced Tea](menuItems) [veg](food_info) friendly?
+    - [Chai](menuItems) [calories](food_info)
+    - [Strawberry slushie](menuItems) [allergens](food_info)
+    - [Hot Chocolate](menuItems) [soy-free]
+    - [cals](food_info) for [Lemonade](menuItems)
+    - [Fruit Smoothie](menuItems) [healthy](food_info)?
+    - [Orange Juice](menuItems) [cals](food_info)
+    - [Jungle Juice](menuItems) [bestseller](food_info)
+    - [Pepsi](menuItems) [in-demand](food_info)
+    - can you tell me if [Sprite](menuItems) is low [cal](food_info)
+    - [allergen-list](food_info) for [Fanta](menuItems)
+    - give me [Mountain dew](menuItems) [calorie-info](food_info)
+    - [calories](food_info) in [Espresso](menuItems)
+    - [lactose-free](food_info) [Classic Cappuccino](menuItems)
+    - [allergen](food_info) list [Cappuccino](menuItems)
+    - [Mocha Latte](menuItems) [lactose](food_info) free?
+    - [Caramel Latte](menuItems) [allergen](food_info)
+    - [Vanilla Latte](menuItems) [calroie](food_info) info
+- synonym: healthy
+  examples: |
+    - helthy
+    - healthiest
+    - heltist
+    - healthy
+    - nutritional
+    - healthist
+    - heslthiest
+    - most healthy
+    - calories
+    - nutritional
+    - calorie
+    - cal
+    - cals
+    - calorie-information
+    - cal-info
+    - diet
+    - diet-friendly
+    - nutritious
+- synonym: allergen
+  examples: |
+    - allergens
+    - allergy
+    - allergic
+    - nut
+    - nuts
+    - nut-free
+    - free of nuts
+    - seafood
+    - seafood-free
+    - lactose
+    - lactose-free
+    - dairy-free
+    - dairy
+    - soy-free
+    - soy
+- synonym: vegan
+  examples: |
+    - vegan
+    - vegan-friendly
+    - herbivore
+    - vegetarian
+    - veg
+    - veg-friendly
+    - meat-free
+- synonym: popular
+  examples: |
+    - most ordered
+    - popular
+    - best seller
+    - best-seller
+    - biggest sellers
+    - bestseller
+    - best sellers
+    - best-sellers
+    - bestsellers
+    - most popular
+    - biggest seller
+    - most sold
+    - highest sold
+    - high popularity
+    - most liked
+    - most-liked
+    - most loved
+    - most-loved
+    - most wanted
+    - in demand
+    - in-demand
+    - hot
+    - high demand
+- lookup: food_info
+  examples: |
+    - helthy
+    - healthiest
+    - heltist
+    - healthist
+    - nutritional
+    - heslthiest
+    - most healthy
+    - calories
+    - nutritional
+    - calorie
+    - cal
+    - cals
+    - calorie-information
+    - cal-info
+    - diet
+    - diet-friendly
+    - nutritious
+    - allergens
+    - allergen
+    - allergy
+    - allergic
+    - nut
+    - nuts
+    - nut-free
+    - free of nuts
+    - seafood
+    - seafood-free
+    - lactose
+    - lactose-free
+    - dairy-free
+    - dairy
+    - soy-free
+    - soy
+    - vegan
+    - vegan friendly
+    - herbivore
+    - vegetarian
+    - veg
+    - veg friendly
+    - most ordered
+    - popular
+    - best seller
+    - best-seller
+    - biggest sellers
+    - bestseller
+    - best sellers
+    - best-sellers
+    - bestsellers
+    - most popular
+    - biggest seller
+    - most sold
+    - highest sold
+    - high popularity
+    - most liked
+    - most-liked
+    - most loved
+    - most-loved
+    - most wanted
+    - in demand
+    - in-demand
+    - hot
+    - high demand
+    - cheesy
+    - choclatey
+    - protein
+    - sugar-free
+    - meat-free
+
+- lookup: menuItems
+  examples: |
+    - GREEK CHICKPEAS
+    - HOUSE SALAD
+    - HAIL CAESAR
+    - TRADITIONAL POTATO
+    - BROCCOLI QUINOA TABBOULEH
+    - FOREST MUSHROOM SOUP WITH GARLIC TOAST
+    - CREAM OF TOMATO WITH BAKED CARROT CRISPS
+    - Chicken soup with croutons
+    - Pumpkin soup
+    - BBQ BACON CHICKEN SANDWICH
+    - CAPRESE
+    - CAPRESE 
+    - BACON CHEDDAR BURGER
+    - CLASSIC BEYOND BURGER
+    - CHEDDAR & MUSHROOM BURGER
+    - NASHVILLE HOT Veggie BURGER
+    - CHICKEN SPINOCCOLI PASTA
+    - SHRIMP SCAMPI
+    - VEGGIE LASAGNA
+    - DEEP DISH MAC & CHEESE
+    - CITY WORKS
+    - SUPERONI
+    - CHEESE PLEASE
+    - SPICY HAWAIIAN
+    - MARGHERITA
+    - BBQ CHICKEN
+    - TACO
+    - Muffin
+    - Bagel with Cream Cheese
+    - Cinnamon Roll
+    - Fruit Tart
+    - Chocolate Éclair
+    - Strawberry Cream Puff
+    - Apple pie
+    - Hot Tea
+    - Iced Tea
+    - Chai
+    - Strawberry slushie
+    - Hot Chocolate
+    - Lemonade
+    - Fruit Smoothie
+    - Orange Juice
+    - Jungle Juice
+    - Pepsi
+    - Sprite
+    - Fanta
+    - Mountain dew
+    - Espresso
+    - Classic Cappuccino
+    - Cappuccino
+    - Mocha Latte
+    - Caramel Latte
+    - Vanilla Latte

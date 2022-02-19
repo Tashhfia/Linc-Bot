@@ -1,0 +1,170 @@
+version: "2.0"
+
+rules:
+
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: respond to chitchat
+  steps:
+    - intent: chitchat
+    - action: utter_chitchat
+
+- rule: respond to FAQs
+  steps:
+    - intent: faq
+    - action: utter_faq
+
+- rule: respond to general out of scope
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+- rule: Activate email subscription form
+  steps:
+    - intent: subscribe_deals_email
+    - action: email_subscription_form
+    - active_loop: email_subscription_form
+
+- rule: Submit email subscription form
+  condition:
+    - active_loop: email_subscription_form
+  steps:
+    - action: email_subscription_form
+    - slot_was_set:
+        - requested_slot: null
+    - active_loop: null
+    - action: action_submit_email_subscription_form
+    - action: utter_anything_else
+
+- rule: subscription form chitchat interruption
+  condition:
+    - active_loop: email_subscription_form
+  steps:
+    - intent: chitchat
+    - action: utter_chitchat
+    - action: email_subscription_form
+    - active_loop: email_subscription_form
+
+- rule: subscription form faq interruption
+  condition:
+    - active_loop: email_subscription_form
+  steps:
+    - intent: faq
+    - action: utter_faq
+    - action: email_subscription_form
+    - active_loop: email_subscription_form
+
+- rule: subscription form out of scope interruption
+  condition:
+    - active_loop: email_subscription_form
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - action: email_subscription_form
+    - active_loop: email_subscription_form
+
+- rule: human handoff confirm
+  steps:
+    - intent: human_handoff
+    - action: utter_sure_human
+
+- rule: Activate human handoff form
+  steps:
+    - action: utter_sure_human
+    - intent: affirm
+    - action: human_handoff_form
+    - active_loop: human_handoff_form
+
+- rule: Submit human handoff form
+  condition:
+    - active_loop: human_handoff_form
+  steps:
+    - action: human_handoff_form
+    - slot_was_set:
+        - requested_slot: null
+    - active_loop: null
+    - action: action_submit_human_handoff_form
+    - action: utter_anything_else
+
+- rule: booking form activate
+  steps:
+    - intent: make_reservation
+    - action: booking_form
+    - active_loop: booking_form
+
+- rule: submit booking form
+  condition:
+    - active_loop: booking_form
+  steps:
+    - action: booking_form
+    - slot_was_set:
+        - requested_slot: null
+    - active_loop: null
+    - action: action_submit_booking_form
+    - action: utter_anything_else
+
+- rule: check reservation form activate
+  steps:
+    - intent: check_reservation
+    - action: check_reservation_form
+    - active_loop: check_reservation_form
+
+- rule: submit check reservation form
+  condition:
+    - active_loop: check_reservation_form
+  steps:
+    - action: check_reservation_form
+    - slot_was_set:
+        - requested_slot: null
+    - active_loop: null
+    - action: action_submit_check_reservation_form
+    - action: utter_anything_else
+
+- rule: cancel reservation form activate
+  steps:
+    - intent: cancel_reservation
+    - action: cancel_reservation_form
+    - active_loop: cancel_reservation_form
+
+- rule: submit cancel reservation form
+  condition:
+    - active_loop: cancel_reservation_form
+  steps:
+    - action: cancel_reservation_form
+    - slot_was_set:
+        - requested_slot: null
+    - active_loop: null
+    - action: action_submit_cancel_reservation_form
+    - action: utter_anything_else
+
+- rule: cancel_mailing_subscription_form activate
+  steps:
+    - intent: cancel_mailing_subscription
+    - action: cancel_mailing_subscription_form
+    - active_loop: cancel_mailing_subscription_form
+
+- rule: submit cancel_mailing_subscription_form
+  condition:
+    - active_loop: cancel_mailing_subscription_form
+  steps:
+    - action: cancel_mailing_subscription_form
+    - slot_was_set:
+        - requested_slot: null
+    - active_loop: null
+    - action: action_submit_cancel_mailing_subscription_form
+    - action: utter_anything_else
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: Respond to ask job
+  steps:
+  - intent: ask_job
+  - action: action_form_job
+

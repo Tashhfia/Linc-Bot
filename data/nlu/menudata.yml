@@ -1,0 +1,449 @@
+version: "2.0"
+nlu:
+- intent: ask_menu
+  examples: |
+    - I want to see your [menu](menu)
+    - i want to see your [mennu](menu)
+    - i want to see ur [menu](menu)
+    - Can i see the [menu](menu)?
+    - Show me your [item list](menu) please.
+    - What [dishes] do you have(menu)?
+    - Show me you [menu card](menu)
+    - Show [dish list](menu)
+    - Do you have a [menu card](menu)?
+    - May i get a [food menu](menu)?
+    - i want [food list] (menu)
+    - what kind of [food](menu) do you serve?(menu)
+    - Show [menu](menu)
+    - show [food list](menu)
+    - i want [menu] (menu)
+    - resturant [menu](menu) please
+    - show me your [menu](menu) ples
+    - i want to see your [menu](menu)
+    - [menu](menu) please
+    - what kind of [food](menu) do you serve at your restaurant?
+    - what kind of [food](menu) do you have?
+    - i would like to see your [menu](menu)
+    - do u hav a picture of your [menu](menu)?
+    - can i have your [menu](menu)?
+    - Can I get your special [menu](menu)
+    - what else is on the [menu](menu)?
+    - can i get the [menu](menu)
+
+- intent: inform_menu_pref
+  examples: |
+    - i want some [salad] (menu_pref)
+    - i want to order [burgir](menu_pref)
+    - i want to order [cheese burgers](menu_pref)
+    - get me some beef [burgers](menu_pref)
+    - i want cheese [tarts](menu_pref)
+    - what are ur [salads](menu_pref)?
+    - what are your [pasta](menu_pref) options?
+    - what are ur [burgers](menu_pref)?
+    - what are your [pizza](menu_pref) options?
+    - I want [salad](menu_pref)
+    - i want some [green](menu_pref) stuff
+    - I want some [fresh](menu_pref)
+    - i want raw [vegetables](menu_pref)
+    - i want [raw veg](menu_pref)
+    - give me something [fresh](menu_pref)
+    - show me your [salad](menu_pref) options
+    - can i get [fresh](menu_pref)
+    - i want to eat something [fresh](menu_pref)
+    - do you have [salads](menu_pref)?
+    - I'm craving [fresh](menu_pref) and healthy food
+    - I'm in the mood for a [salad] (menu_pref)
+    - do you serve [raw veg](menu_pref)?
+    - im hungry for some [fresh salad](menu_pref)
+    - i'm hungry for [green and fresh](menu_pref)
+    - [salad](menu_pref)
+    - [green and fresh](menu_pref) food
+    - something [fresh] (menu_pref)
+    - i want [coleslaw] (menu_pref)
+    - give me some [greens] (menu_pref)
+    - some [greens](menu_pref) please
+    - i need [green](menu_pref) food
+    - you have [green](menu_pref) food?
+    - i want some [greens](menu_pref)
+    - i want to eat [greens](menu_pref)
+    - some [greeeeens](menu_pref) pls
+    - i need [liquid](menu_pref) food
+    - i want [soup](menu_pref)
+    - give me something [warm](menu_pref)
+    - show me your [stew](menu_pref) options
+    - can i get something [warm and comfy](menu_pref)
+    - i want to eat [bisque](menu_pref)
+    - do you have [broth](menu_pref)?
+    - I'm craving something [warm and healthy](menu_pref)
+    - I'm in the mood for a [comforting soup] (menu_pref)
+    - do you serve [soup](menu_pref)?
+    - i'm hungry for [bisque](menu_pref)
+    - [broth](menu_pref)
+    - I want some [burgers](menu_pref)
+    - got [burger](menu_pref)?
+    - i like [burgers](menu_pref)
+    - do you have [burgers](menu_pref)?
+    - i want to order [burgers](menu_pref)
+    - do you serve [hamburgers](menu_pref)
+    - i'm in the mood for some grilled [burgers](menu_pref)
+    - need [cheeseburger](menu_pref)
+    - do you have any chicken [burger](menu_pref)?
+    - I want [pizza](menu_pref)
+    - [pizza](menu_pref)
+    - got [pizza](menu_pref)
+    - [pizza](menu_pref) is my fav
+    - need [pizza](menu_pref)
+    - i want to eat [macaroni](menu_pref)
+    - [fettuccini](menu_pref) maybe?
+    - [spaghetti](menu_pref) please
+    - some [lasagna](menu_pref) maybe?
+    - do you have [linguine](menu_pref)?
+    - [ravioli] (menu_pref)
+    - what kind of [pastas](menu_pref) do u have?
+    - what kind of [salads](menu_pref) do u have?
+    - what kind of [soups](menu_pref) do u have?
+    - what kind of [cakes](menu_pref) do u have?
+    - what kind of [juices](menu_pref) do u have?
+    - what kind of [tarts](menu_pref) do u have?
+    - got [mac n cheese](menu_pref)
+    - i want [mac](menu_pref)
+    - some [spag](menu_pref) pls
+    - [spagetti](menu_pref) plzz
+    - i like [pasta](menu_pref)
+    - i like [pazzta](menu_pref)
+    - i want [pizza](menu_pref)
+    - i love [mac and cheese](menu_pref)
+    - can i get some [macaroni and cheese](menu_pref)
+    - i want something [sweet](menu_pref) and tart
+    - some [sweet](menu_pref) items please
+    - i want [dessert] (menu_pref)
+    - what about [desserts](menu_pref)
+    - got [dessert](menu_pref)
+    - [desert] (menu_pref)
+    - i love [pies](menu_pref)
+    - [pie](menu_pref) only
+    - i want to eat [pie](menu_pref)
+    - [desserts](menu_pref) are my favorite
+    - [sweets](menu_pref) pls
+    - do you have [sweets](menu_pref)?
+    - [sugary](menu_pref) items pls
+    - show [candied](menu_pref) things
+    - need [sweets] (menu_pref)
+    - i like [pastries](menu_pref)
+    - i want [tart](menu_pref)
+    - i want to drink [juice] (menu_pref)
+    - [beverages](menu_pref) list please
+    - [drinks](menu_pref) menu pls
+    - [coffee](menu_pref) pls
+    - something with [caffeine](menu_pref)!
+    - fresh [juice](menu_pref) please
+    - i want something to [drink](menu_pref)
+    - u hav [lemonade](menu_pref)
+    - [juices](menu_pref) only
+    - i want [soda] (menu_pref)
+    - really need [water](menu_pref)
+    - i'm in the mood for some [pepsi](menu_pref)
+    - give me [drinks](menu_pref)
+    - show [teh](menu_pref) options
+    - [kopi](menu_pref)
+    - some [chai] (menu_pref)
+    - healthy [smoothie](menu_pref)
+    - [smoothies](menu_pref)
+    - delicious [hot choc](menu_pref)
+    - my fav is [hot chocolate](menu_pref)
+    - i like [milo](menu_pref)
+    - i want [spite](menu_pref) maybe?
+    - need [tea](menu_pref)
+    - some caramel [latte] (menu_pref)
+    - got [bevarage](menu_pref)
+    - i need [tea](menu_pref)
+    - i want iced [tea](menu_pref)
+    - i want cold [coffee](menu_pref)
+    - do you serve orange [juice](menu_pref)?
+    - u guys hav fruit [smoothie](menu_pref)?
+    - you got apple [juice](menu_pref)
+    - u got [juice](menu_pref)
+    - i want a [bevarage](menu_pref)
+    - do you have [soda](menu_pref)?
+    - I want [ice cream](menu_pref)
+    - i want [rendang](menu_pref)
+    - i want [taco](menu_pref)
+    - i want to order [water] (menu_pref)
+    - i want to order [nasi goreng](menu_pref)
+    - i like [fried chicken](menu_pref)
+    - i like [ayam goreng](menu_pref)
+    - i love [dumplings](menu_pref)
+    - can i get [dim sum](menu_pref)
+    - do you have [fruits](menu_pref)?
+    - do you have [fruit salad](menu_pref)?
+    - i want to eat some [steak](menu_pref)
+    - i want food
+    - give me food
+    - i want to eat
+    - i want some food
+    - i want edibles
+    - can i get some food?
+    - food please
+    - i want to have a meal
+    - give food
+    - need sustenance
+    - gimme something to eat
+    - want to have something to eat
+    - can i get something to eat?
+    - me hungry
+    - i am hungry
+    - i want to grab lunch
+    - i want lunch
+    - i want dinner
+    - get me some food
+    - some food please
+    - get me some lunch
+    - get me some dinner
+    - i want a [drink]{"entity": "menu_pref", "value": "beverages"}
+    - I want to eat [mee goreng](menu_pref)
+    - i want [nasi goreng](menu_pref)
+    - I would love to eat [mac n cheese]{"entity": "menu_pref", "value": "pasta"}
+    - i want [salad](menu_pref)
+    - Do you have [burgers]{"entity": "menu_pref", "value": "burger"}
+    - can i get the [drinks](menu_pref) menu please?
+    - Do you have [soup](menu_pref)
+    - Do you have [salads](menu_pref)
+    - do you have [burger](menu_pref)?
+    - Bad [burger](menu_pref)
+    - I want [burger](menu_pref)
+    - do you have [pizza](menu_pref)?
+    - do you have fresh [salads](menu_pref)?
+- synonym: menu
+  examples: |
+    - menu card
+    - item list
+    - carte du jour
+    - food list
+    - food menu
+    - food items
+    - dish list
+    - dishes
+    - food
+    - mennu
+- synonym: salad
+  examples: |
+    - salad
+    - salads
+    - raw vegetables
+    - raw veg
+    - fresh veg
+    - green and fresh
+    - coleslaw
+    - greens
+    - green
+    - greeeeens
+- synonym: soup
+  examples: |
+    - warm and comfy
+    - comfy
+    - comforting soup
+    - warm
+    - broth
+    - stew
+    - bisque
+    - warm and healthy
+    - liquid
+    - soups
+    - comforting soups
+    - broths
+    - stews
+    - bisques
+    - liquids
+- synonym: burger
+  examples: |
+    - burgers
+    - hamburger
+    - burger
+    - hamburgers
+    - cheeeseburgers
+    - chicken burgers
+    - cheeseburger
+    - chicken burger
+    - cheese burger
+    - cheese burgers
+- synonym: pasta
+  examples: |
+    - macaroni
+    - fettuccini
+    - spaghetti
+    - lasagna
+    - linguine
+    - ravioli
+    - mac n cheese
+    - mac
+    - spag
+    - pasta
+    - spagetti
+    - pastas
+    - pazzta
+    - mac and cheese
+    - macaroni and cheese
+- synonym: dessert
+  examples: |
+    - sweet
+    - pies
+    - sugary
+    - dessert
+    - desserts
+    - candied
+    - sweets
+    - pie
+    - pastries
+    - tart
+    - tarts
+    - pastry
+    - cake
+    - cakes
+- synonym: beverages
+  examples: |
+    - teh
+    - tea
+    - coffee
+    - kopi
+    - caffeine
+    - beverages
+    - beverage
+    - milo
+    - hot choc
+    - soda
+    - smoothies
+    - smoothie
+    - water
+    - juice
+    - drinks
+    - juices
+    - drinks
+    - drink
+#- lookup: menu_pref
+#  examples: |
+#    - steak
+#    - french fries
+#    - fries
+#    - dumplings
+#    - steak
+#    - dimsum
+#    - chicken fry
+#    - nasi goreng
+#    - ayam goreng
+#    - nasi goreng
+#    - chicken rice
+#    - fried rice
+#    - milo
+#    - beverage
+#    - beverages
+#    - teh
+#    - coffee
+#    - kopi
+#    - caffeine
+#    - milo
+#    - hot choc
+#    - drinks
+#    - soda
+#    - fanta
+#    - smoothies
+#    - smoothie
+#    - water
+#    - juice
+#    - drinks
+#    - juices
+#    - drink
+#    - water
+#    - sweet
+#    - pies
+#    - cake
+#    - cakes
+#    - sugary
+#    - dessert
+#    - desserts
+#    - candied
+#    - sweets
+#    - tarts
+#    - pastry
+#    - pie
+#    - pastries
+#    - tart
+#    - macaroni
+#    - fettuccini
+#    - spaghetti
+#    - lasagna
+#    - pastas
+#    - linguine
+#    - ravioli
+#    - mac n cheese
+#    - mac
+#    - spag
+#    - spagetti
+#    - pasta
+#    - pazzta
+#    - mac and cheese
+#    - macaroni and cheese
+#    - salad
+#    - salads
+#    - fresh
+#    - raw vegetables
+#    - raw veg
+#    - fresh veg
+#    - green and fresh
+#    - coleslaw
+#    - greens
+#    - green
+#    - greeeeens
+#    - soup
+#    - warm and comfy
+#    - comfy
+#    - comforting soup
+#    - warm
+#    - broth
+#    - broths
+#    - soups
+#    - stew
+#    - stews
+#    - bisques
+#    - bisques
+#    - warm and healthy
+#    - liquids
+#    - liquid
+#    - burger
+#    - burgers
+#    - sandwhich
+#    - burgir
+#    - hamburger
+#    - cheeseburger
+#    - chicken burger
+#    - sandwhiches
+#    - burgirs
+#    - hamburgers
+#    - cheeseburgers
+#    - cheese burgers
+#    - cheese burger
+#    - chicken burgers
+#    - Mozzarella sticks
+#    - Cheddar Biscuits
+#    - Onion rings
+#    - Baked potato
+#    - Chicken pot pie
+#    - Mashed potatoes
+#    - Fried chicken
+#    - Meatloaf
+#    - Chicken parmesan
+#    - shawarma
+#    - biryani
+#    - briyani
+#    - butter chicken
+#    - kebabs
+#    - mandi
+#    - laksa
+#    - nasi lemak
+#    - nasi greng
+#    - mee goreng
+#    - maggie goreng
+#    - seafood
+#    - kabsa
+#    - grilled chicken
+#    - grill
+#    - paella

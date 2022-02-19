@@ -1,0 +1,88 @@
+version: "2.0"
+nlu:
+- intent: subscribe_deals_email
+  examples: |
+    - i want to subscribe to your weekly special mails
+    - subscribe to weekly specials
+    - subscribe to weekly special emails
+    - send emails about deals
+    - how to subscribe to weekly mails
+    - send weekly special deals emails
+    - special deals email
+    - can you send notifications about your special offers?
+    - how to get notifcation about weekly special deals?
+    - i want to sign up for your mailing list
+    - sign me up for your weekly deals
+    - how to sign up for mailing list?
+    - can you sign me up for weekly deals?
+    - i want to get weekly special deals
+    - i want to get mails about weekly offers
+    - i want to get information about weekly deals
+    - i want to subscribe to special deals mails
+    - i want to subscribe to mails
+    - i want to subscribe to mailing list
+    - can i get emails about weekly deals
+    - subscribe
+    - Do you have special offers
+    - what is your weekly special deal?
+    - tell me about your weekly specials
+    - subscribe me to deals
+    - subcribe weekly mails
+    - subscribe weekly emails
+    - subscribe to mailing list
+    - add me to your mailing list
+    - can you add me to your mailing list?
+    - add me to your subscription list
+    - can you add me to your subscription list?
+    - how to get on your special mailing list?
+    - how to know about weekly specials?
+    - how to get on your weekly mailing list?
+    - how to know about weekly special updates?
+- intent: cancel_mailing_subscription
+  examples: |
+    - I want to unsubscribe to mailing list
+    - i dont want to receive emails from you anymore
+    - i dont want to get emails from you anymore
+    - i dont want to receive mails from you anymore
+    - i dont want to get mails from you anymore
+    - stop sending me emails
+    - i dont want to receive weekly mails
+    - i dont want to receive weekly special updates
+    - i want to opt out of your mailing list
+    - stop sending emails to me
+    - unsubscribe from weekly mails
+    - remove me from your mailing list
+    - remove from weekly special emails
+    - stop sending me weekly mails
+    - how to opt out of weekly emails?
+    - can you help me to unsubcribe from weekly emails?
+    - remove weekly emails
+    - i dont want to receive emails from your anymore
+    - opt out weekly emails
+    - cancel weekly special emails
+    - please remove me from your weekly emails
+    - remove me from your mailing list please
+    - remove from weekly special emails please
+    - stop sending me weekly mails please
+    - how to unsubscribe of weekly emails?
+    - can you please help me to unsubcribe from weekly emails?
+    - ples remove weekly emails
+    - unsubscribe me to deals
+    - unsubcribe weekly mails
+    - unsubscribe weekly emails
+    - unsubscribe to mailing list
+    - remove me to your mailing list
+    - can you remove me to your mailing list?
+    - remove me from your subscription list
+    - can you remove me to your subscription list?
+    - stop emailing me
+    - stop mailing me
+    - i dont want to get emails anymore
+    - cancel my subscription
+    - cancel my mailing subscription
+    - cancel my weekly subscription
+    - cancel my weekly mailing subscription
+    - cancel my subscription
+    - cancel my mailing subscription
+    - cancel my weekly subscription
+    - cancel my weekly mailing subscription

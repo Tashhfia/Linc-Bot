@@ -1,0 +1,1155 @@
+version: "2.0"
+
+stories:
+
+- story: discontinue human hand off path
+  steps:
+    - intent: human_handoff
+    - action: utter_sure_human
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_what_u_want
+- story: discontinue human hand off path 2
+  steps:
+    - intent: human_handoff
+    - action: utter_sure_human
+    - intent: deny
+    - action: utter_what_u_want
+- story: discontinue human hand off path 3
+  steps:
+    - intent: human_handoff
+    - action: utter_sure_human
+    - intent: stop
+    - action: utter_what_u_want
+- story: chooses option from buttons story 1
+  steps:
+    - intent: human_handoff
+    - action: utter_sure_human
+    - intent: ask_menu
+    - action: utter_show_menu
+- story: happy path 1
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tashfia@gmal.com
+  - slot_was_set:
+    - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a misconduct
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+- story: handoff explain 5
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tashfia@gmal.com
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a misconduct
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+- story: happy path 2
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+    - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: Low
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: happy path deviation
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: happy path deviation 2
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: Moderate
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: happy path deviation 3
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmail.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: burger
+  - slot_was_set:
+      - menu_pref: burger
+  - action: action_show_menu
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: Low
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: handoff explain 4
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: ask_menu
+  - action: utter_show_menu
+  - intent: inform_menu_pref
+    entities:
+      - menu_pref: burger
+  - slot_was_set:
+      - menu_pref: burger
+  - action: action_show_menu
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: Low
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+- story: happy path deviation 4
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: happy path deviation 5
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: happy path deviation 6
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: handoff explain 3
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+- story: handoff explain 3_job
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: ask_job
+  - action: action_form_job
+  - intent: menuQuery
+  - action: utter_menu_query_general
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - food_info: popular
+  - slot_was_set:
+    - food_info: popular
+  - action: action_general_query
+  - slot_was_set:
+    - food_info: null
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: deny
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+- story: happy path deviation 7
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: handoff explain 2
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+- story: happy path deviation 8
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: happy path deviation 9
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: stop
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: happy path deviation 10
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: handoff explain 1
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: handoff explain 3
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - menuItems: apple pie
+  - slot_was_set:
+      - food_info: popular
+      - menuItems: apple pie
+  - action: action_specific_query
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: handoff with unavailable feature
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - menuItems: apple pie
+  - slot_was_set:
+      - food_info: popular
+      - menuItems: apple pie
+  - action: action_specific_query
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: happy path deviation with fallback
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: happy path deviation with fallback 2
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: inform
+  - slot_was_set:
+    - email: tash@gmal.com
+  - slot_was_set:
+      - requested_slot: issue
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: issue
+  - slot_was_set:
+    - issue: i want to report a missing order
+  - slot_was_set:
+    - requested_slot: issue_urgency
+  - intent: inform_issue_urgency
+  - slot_was_set:
+    - issue_urgency: High
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_human_handoff_form
+  - action: utter_anything_else
+
+- story: handoff with unavailable feature  fallback
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: ask_job
+  - action: action_form_job
+  - intent: menuQuery
+  - action: utter_menu_query_general
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - food_info: popular
+  - slot_was_set:
+    - food_info: popular
+  - action: action_general_query
+  - slot_was_set:
+    - food_info: null
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - menuItems: apple pie
+  - slot_was_set:
+      - food_info: popular
+      - menuItems: apple pie
+  - action: action_specific_query
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: unavailable_feature
+  - action: utter_feature_unavailable
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: nlu_fallback
+  - action: utter_default
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else
+
+- story: handoff with unavailable feature_job
+  steps:
+  - intent: human_handoff
+  - action: utter_sure_human
+  - intent: affirm
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: faq
+  - action: utter_faq
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: explain
+  - action: action_explain_slot
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: menuQuery
+    entities:
+    - food_info: popular
+    - menuItems: apple pie
+  - slot_was_set:
+      - food_info: popular
+      - menuItems: apple pie
+  - action: action_specific_query
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: menuQuery
+    entities:
+      - food_info: popular
+      - menuItems: tea
+  - slot_was_set:
+      - food_info: popular
+      - menuItems: apple pie
+  - action: action_specific_query
+  - action: human_handoff_form
+  - active_loop: human_handoff_form
+  - slot_was_set:
+      - requested_slot: email
+  - intent: stop
+  - action: utter_are_u_sure
+  - intent: affirm
+  - action: action_slot_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_anything_else

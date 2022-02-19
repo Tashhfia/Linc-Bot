@@ -1,0 +1,209 @@
+version: "2.0"
+
+nlu:
+
+- intent: human_handoff
+  examples: |
+    - I want to talk to a human agent
+    - i wnt to talk to hooman
+    - can you connect me to a human staff?
+    - please link me to a human representative
+    - i want to talk to the manager
+    - connect me to your manager
+    - i want a human
+    - i dont want to talk to a robot
+    - let me talk to a human please
+    - get me your manager
+    - i want the general manager
+    - i want human
+    - Can I speak to anyone who can really help me?
+    - Could I talk to rifah?
+    - can i talk to tashfia?
+    - I don't wanna talk to a bot
+    - I dont like to talk to a machine
+    - I want to talk to a human
+    - I want to talk to the founders
+    - are there also humans working for your company?
+    - can I speak to a person?
+    - can i please speak to a human?
+    - can you forward me to your team
+    - can you please connect me to a real rasa employee?
+    - can you put me in touch with a human?
+    - do you have human support ?
+    - gimme a proper human
+    - give me a human
+    - give me a human now
+    - human handoff
+    - i dont wanna talk to a bot
+    - i want to speak to a real person
+    - i want to speak to customer service
+    - i want to talk to a human
+    - i want to talk to a person
+    - i want to talk to human
+    - i want to talk to someone at your restaurant
+    - i want to talk to someone else
+    - i want to talk to someone who is smarter than you
+    - i would like to speak to a person
+    - i'd rather speak with a real employee
+    - id like to talk to a real employee
+    - let me speak with a real person please
+    - let me talk to a human
+    - let me talk to a real person
+    - please give me a human
+    - service agent
+    - someone from customer care
+    - speak to a real person
+    - talking to a bot is stupid
+    - that's annoying I'd like to speak to someone real
+    - thats not helping, can i talk to human?
+    - wrong i want to speak to a human
+    - can i speak to human
+    - can i speak to your human
+    - i want to chat with human
+    - How do I talk to a human
+    - talk with a human
+    - Can i talk to a human instead
+    - nevermind.... you're not human ... I need to talk to a live person
+    - Can you get a human to assist me?
+    - Can i talk to a human?
+    - Can I talk to a human
+    - Can I speak to a human?
+    - can i speak to a human
+    - no, i want to talk to human
+    - can you hand a conversation over to a human?
+    - can I talk to human?
+    - can I talk to human
+    - talk to human
+    - i want human :(
+    - can i talk to human
+    - i want to talk to a human \
+    - i want to speak to human
+    - can i talk to a real person?
+    - connect me to a real person
+    - I need a real person
+    - can i took with a real person
+    - let me speak to a real person
+    - let me speak to a real person please
+    - i want to talk to a real person
+    - let me talk to a human please
+    - you're not really solving my problem
+    - please connect me to a human
+    - manager!
+    - MANAGER
+    - i need to talk to your manager
+    - i want to speak to the manager
+    - get me the manager
+
+- intent: inform_issue_urgency
+  examples: |
+    - its [very important](issue_urgency)
+    - its [extremely important](issue_urgency)
+    - [high](issue_urgency)
+    - [High](issue_urgency)
+    - [Low](issue_urgency)
+    - [Moderate](issue_urgency)
+    - [high] priority(issue_urgency)
+    - [very crucial](issue_urgency)
+    - i think its [urgent](issue_urgency)
+    - i believe my situation quite [dire](issue_urgency)
+    - its [pivotal](issue_urgency) for me
+    - this is an [integral](issue_urgency) matter
+    - this discussion is [serious](issue_urgency)
+    - it is [significant](issue_urgency)
+    - i think its [vital](issue_urgency) for me to discuss this matter with a human agent
+    - my situation is [desperate](issue_urgency)
+    - i have [pressing](issue_urgency) matters to discuss
+    - it is of [medium](issue_urgency) importance
+    - I guess its [average](issue_urgency)
+    - I think its [passable](issue_urgency)
+    - my issue is [tolerable](issue_urgency)
+    - my matter if discussion is [ordinary](issue_urgency)
+    - i think its [modest](issue_urgency) urgency
+    - [common](issue_urgency)
+    - i would consider it [decent](issue_urgency)
+    - [moderate](issue_urgency) priority
+    - its quite [insignificant](issue_urgency)
+    - i guess its [low](issue_urgency) priority
+    - maybe [less important](issue_urgency)
+    - i would consider it [minor-league](issue_urgency)
+    - the priority is [less](issue_urgency)
+    - it has [no importance](issue_urgency)
+    - its quite [unnecessary](issue_urgency)
+    - [unimportant](issue_urgency) maybe?
+    - this discussion is [trivial](issue_urgency)
+    - its [not urgent](issue_urgency)
+    - [extremely important](issue_urgency)
+    - [high](issue_urgency)
+    - [very crucial](issue_urgency)
+    - [urgent](issue_urgency)
+    - [dire](issue_urgency)
+    - [pivotal](issue_urgency)
+    - [integral](issue_urgency)
+    - [serious](issue_urgency)
+    - [pressing](issue_urgency)
+    - i am [desperate](issue_urgency)
+    - [significant](issue_urgency)
+    - [serious](issue_urgency)
+    - [medium](issue_urgency)
+    - [average](issue_urgency)
+    - [passable](issue_urgency)
+    - [tolerable](issue_urgency)
+    - [ordinary](issue_urgency)
+    - [modest](issue_urgency)
+    - [common](issue_urgency)
+    - [decent](issue_urgency)
+    - [moderate](issue_urgency)
+    - [insignificant](issue_urgency)
+    - [low](issue_urgency)
+    - [less important](issue_urgency)
+    - [minor-league](issue_urgency)
+    - [less](issue_urgency)
+    - [no importance](issue_urgency)
+    - [unnecessary](issue_urgency)
+    - [unimportant](issue_urgency)
+    - [trivial](issue_urgency)
+    - [not urgent](issue_urgency)
+
+- synonym: High
+  examples: |
+    - very important
+    - extremely important
+    - high
+    - High
+    - very crucial
+    - urgent
+    - dire
+    - pivotal
+    - integral
+    - serious
+    - pressing
+    - desperate
+    - significant
+    - serious
+
+- synonym: Moderate
+  examples: |
+    - medium
+    - average
+    - passable
+    - tolerable
+    - ordinary
+    - Moderate
+    - modest
+    - common
+    - decent
+    - moderate
+
+- synonym: Low
+  examples: |
+    - insignificant
+    - low
+    - less important
+    - minor-league
+    - less
+    - Low
+    - no importance
+    - unnecessary
+    - unimportant
+    - trivial
+    - not urgent

@@ -1,0 +1,821 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - hello bot
+    - hi bot
+    - heyyo chatbot
+    - hey chatbot
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hi Linc
+    - hello Linc
+    - heyyo
+    - hai
+    - Good Morning
+    - Good morning
+    - Good mourning
+    - Guten Morgen
+    - HELLO
+    - HEY
+    - HEllo
+    - HI
+    - Hallo
+    - Hei
+    - Helloo
+    - i want to ask a question
+    - Hello Bot
+    - Hello Rasa
+    - Hello 
+    - yoooooo
+    - yo
+    - Hello!
+    - Hey
+    - Hey bot
+    - Heya
+    - Heylo
+    - Hi
+    - Hi bot
+    - Hi man
+    - Hi rasa
+    - Hi rasa..
+    - Hi there
+    - Hi!
+    - Hi'
+    - Hi,
+    - Hi, bot
+    - Hieee
+    - Hiee
+    - Hola
+    - I said, helllllloooooO!!!!
+    - Well hello there ;)
+    - bonjour
+    - ey boss
+    - good moring
+    - greet
+    - greetings
+    - hallo
+    - hallo lincccc
+    - halloo
+    - halloooo
+    - halo
+    - halo linc
+    - heeey
+    - heelio
+    - hell9o
+    - hellio
+    - hello everybody
+    - hello friend
+    - hello hi
+    - hello is anybody there
+    - hello it is me again
+    - hello robot
+    - hello sweatheart
+    - hello sweet boy
+    - hello world
+    - hello, my name is tashfia
+    - hello?
+    - hello]
+    - hellooo
+    - helloooo
+    - helo
+    - hey bot
+    - hey bot!
+    - hey hey
+    - hey let's talk
+    - hey rasa
+    - hey linc
+    - hey ther
+    - hey there boy
+    - hey there..
+    - hey, let's talk
+    - hey, linc!
+    - salam
+    - Long time no see!
+    - talk to me
+    - Hello RASA
+    - hola
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - tata
+    - byeee
+    - bye linc
+    - ok bye
+    - k bye
+    - gotta go bye
+    - good bye
+    - bye frend
+    - talk to you later, bye
+
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - definitely
+    - sure, definitely
+    - yasss
+    - certainly
+    - yup
+    - yep
+    - ye
+    - Accept
+    - Awesome!
+    - Good
+    - Great
+    - I accept
+    - yes, i remeber
+    - yes, definitely
+    - yep i do
+    - ah yes, i do
+    - i think i do
+    - i do remember
+    - i think i remember
+    - i think i can recall it
+    - I accept.
+    - I agree
+    - I changed my mind. I want to accept it
+    - I do
+    - I get it
+    - I guess so
+    - I have used it in the past
+    - I will
+    - I'd absolutely love that
+    - I'm sure I will!
+    - Nice
+    - OK
+    - Ofcourse
+    - Oh yes
+    - Oh, ok
+    - Ok
+    - Ok let's start
+    - Ok.
+    - Okay
+    - Okay!
+    - YES PLEASE
+    - SURE
+    - Sure
+    - Sweet
+    - That would be great
+    - YES
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept
+    - Yes.
+    - Yup
+    - a little
+    - absolutely
+    - accept
+    - accepted
+    - agreed
+    - ah ok
+    - alright
+    - alright, cool
+    - amayzing
+    - amazing!
+    - awesome
+    - awesome!
+    - confirm
+    - cool story bro
+    - definitely yes without a doubt
+    - done
+    - fair enough
+    - fcourse
+    - fine
+    - fuck yeah!
+    - go
+    - go ahead
+    - go for it
+    - going super well
+    - good.
+    - great
+    - great lets do that
+    - great!
+    - hell yeah
+    - hell yes
+    - hm, i'd like that
+    - how nice!
+    - i accept
+    - i agree
+    - i am!
+    - i will!
+    - it is ok
+    - okay
+    - k
+    - kk
+    - lets do it
+    - lets do this
+    - not bad
+    - ofcoure i do
+    - ofcourse
+    - oh awesome!
+    - oh cool
+    - oh good !!
+    - oh super
+    - ok
+    - ok cool
+    - ok fine
+    - ok friend
+    - ok good
+    - ok great
+    - ok i accept
+    - ok linc
+    - ok, I behave now
+    - ok, I understood
+    - ok, Linc
+    - ok...
+    - okay cool
+    - okay sure
+    - okay..
+    - oki doki
+    - okie
+    - ook
+    - oui
+    - perfect
+    - please
+    - si
+    - sort of
+    - sure
+    - sure thing
+    - sure!
+    - that is cool
+    - that ok
+    - that sounds fine
+    - that's great
+    - thats fine
+    - thats good
+    - thats great
+    - uh-huh
+    - very much
+    - well yes
+    - ya
+    - ya cool
+    - ya go for it
+    - ya i want
+    - ya please
+    - ya thats cool
+    - yaah
+    - yap
+    - yaps
+    - yas
+    - yay
+    - ye splease
+    - yea
+    - yeah
+    - yeah do that
+    - yeah sure
+    - yeah'=
+    - yeah, why not
+    - yep i want that
+    - yep if i have to
+    - yep please
+    - yep that's nice
+    - yep thats cool
+    - yep, will do thank you
+    - yep. :/
+    - yesh
+    - yess
+    - yessoo
+    - yesss
+    - yesssss
+    - yesyestyes
+    - yesyesyes
+    - yez
+    - yop
+    - you asked me a yes or no question, which i answered with yes
+    - you got me, I accept, if you want me to
+    - yres
+    - ys
+    - yes indeed
+    - crtainly
+    - ys i am sure
+    - yyeeeh
+    - Okay cool
+    - ok..
+    - i'm serioulsy considering it
+    - More a less
+    - sounds good!
+    - sure, I'll give you my info
+    - yes, I am sure
+    - yes, i remember
+    - i remember
+    - yes, i am sure
+- intent: deny
+  examples: |
+    - I don't want to
+    - I don't want to give it to you
+    - I don't want to say
+    - I dont want to tell
+    - not really
+    - no, stop
+    - i dont remember
+    - idk
+    - not sure
+    - i dont think so
+    - i'm not sure
+    - dont know
+    - don't remember
+    - dont remember
+    - I cant recall
+    - i can not recall
+    - i can't recall
+    - i do not remember
+    - i don't remember
+    - I not remeber
+    - i can't remember
+    - i cant recll
+    - i cant recall
+    - i dont think i do
+    - dont think so
+    - I'm not giving you my email address
+    - I'm not going to give it to you
+    - NEIN
+    - NO
+    - NO DON"T WANT THIS!
+    - Nah
+    - Neither
+    - Never
+    - Nevermind
+    - No
+    - No thank you
+    - No, not really.
+    - No, thank you
+    - No.
+    - Nopes
+    - Not really
+    - absolutely not
+    - decline
+    - definitely not
+    - deny
+    - i decline
+    - i don not like this
+    - i don't think so
+    - i don't want either of those
+    - i don't want to
+    - i don't want to give you my email
+    - i dont want to
+    - i dont want to accept :P lol
+    - i guess it means - no
+    - i'm afraid not
+    - it is going pretty badly
+    - it sucks
+    - it sux
+    - n
+    - na
+    - nah
+    - nah I'm good
+    - nah not for me
+    - nah, first time
+    - nah, i'm good
+    - nehi
+    - nein
+    - neither
+    - never
+    - never mind
+    - no
+    - no :(
+    - no I dont want
+    - no I haven't decided yet if I want to sign up
+    - no and no again
+    - no bots at all
+    - no go
+    - no i can't
+    - no i don't accept
+    - no i dont want to
+    - no i dont want to accept :P lol
+    - no i won't
+    - no ma'am
+    - no sir
+    - no sorry
+    - no thank s
+    - no thank you
+    - no thanks anyway
+    - no way
+    - no you did it wrong
+    - no!!!!
+    - no, i hate it
+    - no, my frst time
+    - no, thank you
+    - no, thanks
+    - no, thankyou
+    - no. u r idiot
+    - non
+    - noooooooooo
+    - noooooooooooooooooooooooooooooooooooooooo
+    - nop
+    - nope
+    - nope!
+    - nope. i am good
+    - not going well at all
+    - not right now
+    - not yet
+    - nö
+    - sorry not right now
+    - still dont want to tell
+    - thanks but no thanks
+    - this sucks
+    - very bad
+    - I do not need help installing
+    - I don't wanna tell the name of my company
+    - none of them
+    - no, i dont remember my booking date
+    - i don't remember my booking date
+    - i dont remember my reservation date
+    - i don't remember my reservation date
+    - I don't agree
+    - no,
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - i am so sad
+    - i am upset
+    - i m sad
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - bad
+    - too bad
+    - thats unfortunate
+    - aww damn
+    - thats sad
+- intent: thank
+  examples: |
+    - thank you
+    - tq
+    - thanks
+    - thankyou
+    - ty
+    - thnx
+    - thanks a lot!
+    - thank you so much
+    - Cool. Thanks
+    - Great, thanks
+    - Thank you
+    - Thank you Linc
+    - Thank you so much
+    - Thank's!
+    - Thanks
+    - Thanks bot
+    - Thanks for that
+    - Thanks!
+    - amazing, thanks
+    - cheers
+    - cheers bro
+    - cool thank you
+    - cool thanks
+    - cool, thanks
+    - danke
+    - great thanks
+    - ok thanks
+    - ok thanks linc
+    - ok thanks!
+    - perfect thank you
+    - thank u
+    - thank you anyways
+    - thanks a bunch for everything
+    - thanks a lot
+    - thanks for the link, I'll check it out
+    - thanks for the help
+    - thanks this is great news
+    - thanks you
+    - thanks!
+    - thnks
+    - thx
+    - yes thanks
+    - thanks for your information
+    - thanks fren
+- intent: unavailable_feature
+  examples: |
+    - can you help me locate your store?
+    - where is your store?
+    - can you show me your store location?
+    - where is your store?
+    - where exactly is your store?
+    - where is your physical shop located?
+    - may I know where your shop is?
+    - can you please give me the location of your store?
+    - i want to chnge my booking date
+    - change my booking date to 10/12/21
+    - change my booking time to 10:30
+    - change booking time
+    - change reservation time
+    - amend reservation date
+    - can you change my booking date
+    - i want to track delivery
+    - track my delivery pls
+    - delivery tracker
+    - where is my order?
+    - help me track my order
+    - please help me track my order
+    - whats my order status?
+    - order status
+    - track delivery
+    - show order status
+    - whats the status of my order
+    - order stats
+    - give me order updates
+    - what kind of meat will be there?
+    - can you suggest me anything for today?
+    - actually, can you change the booking date to 9-12-22
+    - please change date to 2-12-22
+    - change my booking time 
+    - change time to 12:30
+    - change my email address
+- intent: reply_welcome
+  examples: |
+    - its alright
+    - no worries
+    - don't worry about it
+    - its fine
+    - its okay
+- intent: explain
+  examples: |
+    - why?
+    - whu do you need this info?
+    - why should i tell u
+    - why do you need that
+    - what makes u think i'll give you that information?
+    - y do u need this?
+    - y do u want this?
+    - why should i give you this information?
+    - why do you need it?
+    - what will you do with this information?
+    - wat will u do with this info?
+    - why are you asking?
+    - why is this needed?
+    - why do you require this info?
+    - why is this information needed?
+    - but why?
+    - why do you need my email address?
+    - why do u need my email id?
+    - why should i tell u that?
+    - why do you need to know this?
+    - y u want this
+    - but why should i tell you?
+    - why do u ask?
+    - y r u asking for this?
+    - why are u asking?
+    - why so?
+    - why do i need to give you my email?
+    - why do you need to know how many people?
+    - why is it?
+    - why should i tell you?
+    - i don't think i want to tell you that
+    - i dont want to tell you that
+    - i am not giving you my email address
+    - not giving you my email address.
+    - i dont think i want to give you that info
+    - why do you need to know that
+    - why should i give you this information
+    - wut
+    - wat
+    - why
+    - what happened
+    - what happen
+    - ?
+    - why do you need that?
+    - why so?
+    - Why creepy
+    - Why
+- intent: stop
+  examples: |
+    - i don't want to continue
+    - stop
+    - actually I'm done
+    - i am done
+    - i'm done!
+    - i'm done with this
+    - stop booking
+    - stop cancellation
+    - stop this
+    - just stop
+    - wait, i am not interested anymore
+    - not interested anymore
+    - don't want it
+    - i dont want to subscribe
+    - can we stop?
+    - cannot
+    - cant
+    - wont
+    - will not
+    - do not
+    - not interested
+    - can you just stop?
+    - just shut up
+    - shut it
+    - stop talking
+    - stop what you are doing
+    - can u stop
+    - ya, stop
+    - yes, stop please
+    - yeah, i dont want to continue
+    - stopppppp
+    - i dont want it anymore
+    - yes, stop
+    - actually, i want to stop
+    - i dont wish to continue
+    - no stop
+    - stop it, i do not care!!!
+    - just stop
+    - i changed my mind about booking
+    - i changed my ming
+    - i think i changed my mind
+    - i don't want to book anymore
+    - i dont want to check my details
+    - i want to stop this process
+    - i am done, stop this
+    - i changed my mind
+    - actually, i changed my minf
+    - cannot do
+- intent: ask_job
+  examples: |
+    - what is your purpose?
+    - what is your job?
+    - What else
+    - what can you help me with?
+    - what is your work?
+    - Can you explain me in one sentence what you are doing?
+    - Can you help me?
+    - Could you please show me what you can
+    - Great, is there anything else you can do, bot?
+    - How can you help me
+    - How you help me?
+    - What are my options
+    - What are you able to do?
+    - What can I ask you?
+    - What can I do?
+    - What can you demo
+    - What can you do
+    - What can you do for me?
+    - What can you do?
+    - What can you tell me?
+    - What do you do
+    - can you help me
+    - hello what can you do for me
+    - help
+    - help me
+    - help please
+    - help pls
+    - help?
+    - hep me
+    - hi. Linc what do you do?
+    - hm that doesnt quite help me is there anything else you can do?
+    - how can i use you
+    - how can you help me
+    - how can you help?
+    - how does this work?
+    - how u can help me
+    - how you help me
+    - i asked you if you can do anything else
+    - i don't know what i want
+    - i need help
+    - show me what's possible
+    - so what can you do
+    - so what can you do?
+    - so what can you help me with?
+    - talk to me
+    - tell me something you can do
+    - tell me what's your skill
+    - what are all the things you understand?
+    - what are the options?
+    - what are you good at?
+    - what can I ask ?
+    - what can I ask you?
+    - what can I do here
+    - what can I do with Linc?
+    - what can I do with this bot
+    - what can i do here
+    - what can i do now
+    - what can u do
+    - what can we talk about?
+    - what can you answer
+    - what can you do
+    - what can you do for me
+    - what can you do, linc?
+    - what can you do?
+    - what can you offer me?
+    - what can you tell me
+    - what can you?
+    - what cn u do for me ?
+    - what do you do
+    - what do you know except this?
+    - what else can I do here?
+    - what else can you do?
+    - what else can you help with?
+    - what is this bot for
+    - what u can do
+    - what u can do?
+    - what you can do
+    - what you can do for me?
+    - what you can do?
+    - what you do
+    - how do you work?
+    - what you can
+    - what is your job linc?
+    - what can you do for me linc?
+    - what else can you do ?
+    - how can you help me?
+- intent: inform
+  examples: |
+    - i want to book on 12-12-22
+    - yes, i do remember that it was 21/02/2021
+    - yes, i do, it was 23/12/22
+    - book a table on 3/01/22
+    - i will visit on 23-11-22
+    - 01-12-2022
+    - i want to visit at 12:20
+    - 13:30
+    - 3 pm
+    - ermn@gg.com
+    - 9pm
+    - 10am
+    - 9 am
+    - 11:30 works for me
+    - 12:30 maybe
+    - probably 17:00
+    - table for one on 12/7/21
+    - book a table on 13/10/22
+    - i will probably visit on 23-11-22
+    - 11-12-2022
+    - 10/10/22
+    - 22/1/1
+    - 17.12.21
+    - book a table for me on 6th december, 2022
+    - i want to visit at 22:20
+    - 13:33
+    - 9:30 maybe?
+    - i think 11:00 pm
+    - i will be there at 6:30 pm
+    - are you open on 7/12/2021?
+    - i remember. Its 21/02/2021
+    - i remember it was on 23/12/22
+    - 21/02/2021
+    - i remember, 23/12/2021
+    - its 22/02/2022
+    - 20/01/2022
+    - it was 05-4-2021
+    - i guess it was 9-09-2023
+    - i think 03-08-2023
+    - i'm pretty sure it was 03-03-2021
+    - it was 23/12/22
+    - efsa@hosn.com
+    - email me at sdsdsd@gmail.com
+    - ddw@rre.ee.um.my
+    - you can reach me at sff@yahoo.com
+    - send the details at sis@hotmail.com
+    - 23:59
+    - 23/1/2022
+    - test@es.com
+    - test@test
+    - 17:30
+    - 5:30
+    - 28-01-22
+    - tashfia@tst.com
+    - 28/12/21
+    - tashfia@test.com
+    - azmaeenshamim@gmail.com
+    - wid170724@siswa.um.edu.my
+    - tash@um.edu.my

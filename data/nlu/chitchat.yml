@@ -1,0 +1,124 @@
+version: "2.0"
+nlu:
+- intent: chitchat/ask_bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - are you a chatbot?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are u facebook
+    - are u, facebook?
+    - is this a human?
+    - are you even human?
+    - Ar you a bot ?
+    - Are you a bot
+    - Are you a chat bot?
+    - Are you the bot?
+    - Hi there, are you the bot?
+    - are you a BOT
+    - are you a Skynet ?
+    - are you a bot
+    - are you a robot ?
+    - are you a chatbot
+    - are you a rasa bot?
+    - are you a real bot?
+    - are you a robot
+    - are you ai
+    - are you artificial
+    - are you artificial intelligence
+    - are you rasa bot?
+    - are you real
+    - are you real lol
+    - are you really a bot
+    - are you robot
+    - are you sure that you're a bot?
+    - bot?
+    - cuz you are a bot
+    - i guess you are a chatbot
+    - oh are you chatbot?
+    - tell me, are you a bot?
+    - what are you, a bot?
+    - you are a robot
+    - you are ai
+    - you are chatbot
+    - you're a bot
+    - you robo
+    - real bot then?
+    - are you really a bbot?
+    - hey are you human
+    - r u a human
+    - are you real human?
+    - you are a human
+    - Rara, are you a human?
+    - you are bot or human?
+    - are you human
+    - ok, i know i confused you there being a human! :)
+    - you are human or bot
+    - Are you human?
+    - Are you a human being?
+    - sara, are you a robot or human?
+    - r u real?
+    - are you a real person
+    - are u a real person?
+    - Are you a real person?
+    - are you a real person?
+    - are you real person or chat bot?
+    - So I'm here Today to ask one very simple question, what are you ?
+    - you sound like a real human
+    - wow you sound like real human
+    - are yiu human/
+- intent: chitchat/ask_identity
+  examples: |
+    - who are you?
+    - who are you
+    - what should i call you?
+    - what is your name?
+    - whats ur name
+    - who u
+    - whatr your name
+    - what is your name
+    - wat is your name
+    - what should i call you?
+    - do you have a name bot?
+    - do u hav a name?
+    - what name?
+    - tell me your name
+    - wats ur name
+    - who r u
+    - who r u?
+    - what should i refer you as?
+    - May I know who you are?
+    - who is this?
+    - who this?
+    - who am I talking to?
+    - who dis
+    - what is your name
+    - Could you please tell me who I'm speaking with?
+- intent: chitchat/ask_how_are_you
+  examples: |
+    - how are you?
+    - how are you today
+    - how are you doing today?
+    - how are u?
+    - how are you doing?
+    - How's everything?
+    - How's it going?
+    - How are things?
+    - How are you doing?
+    - You all right?
+    - How have you been?
+    - How are you feeling?
+    - What are you up to?
+    - What’s sizzling?
+    - How do you do?
+    - What’s good in the hood?
+    - What’s new with you?
+    - How are you holding up?
+    - How was your day?
+    - how's life?
+    - How’s everything little thing in your life?
+    - How do you fare?
+    - How’s it rolling?
+    - how are you
+

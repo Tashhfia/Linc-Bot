@@ -1,0 +1,197 @@
+version: "2.0"
+
+stories:
+- story: sad path 33
+  steps:
+  - intent: greet
+  - action: utter_greet
+- story: sad path 334
+  steps:
+  - intent: "* start"
+  - action: utter_greet
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+
+- story: did that help neg
+  steps:
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_sorry
+
+- story: did that help pos
+  steps:
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: its alright
+  steps:
+   - intent: reply_welcome
+   - action: utter_happy
+
+- story: thank you flow
+  steps:
+    - intent: thank
+    - action: utter_grattitude
+    - action: utter_anything_else
+
+- story: store location
+  steps:
+    - intent: find_shop
+    - action: utter_feature_unavailable
+
+- story: explain path
+  steps:
+    - intent: explain
+    - action: action_explain_slot
+- story: stop path 1
+  steps:
+    - intent: stop
+    - action: utter_are_u_sure
+    - or:
+        - intent: stop
+        - intent: affirm
+    - action: action_slot_reset
+- story: stop path 2
+  steps:
+    - intent: stop
+    - action: utter_are_u_sure
+    - intent: affirm
+    - action: action_slot_reset
+
+- story: stop path 3
+  steps:
+    - intent: stop
+    - action: utter_are_u_sure
+    - intent: stop
+    - action: action_slot_reset
+
+- story: anything else neg path 1
+  steps:
+    - action: utter_anything_else
+    - intent: deny
+    - action: utter_happy
+
+- story: anything else neg path 2
+  steps:
+    - action: utter_anything_else
+    - intent: goodbye
+    - action: utter_goodbye
+- story: anything else neg path 3
+  steps:
+    - action: utter_anything_else
+    - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: gibberish path
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+- story: gibberish path 2
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+
+- story: bye 2
+  steps:
+    - action: utter_anything_else
+    - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: gibberish path 3
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+- story: bye 1
+  steps:
+    - action: utter_anything_else
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: bye withjob
+  steps:
+    - action: utter_anything_else
+    - intent: affirm
+    - action: action_form_job
+    - intent: menuQuery
+      entities:
+      - food_info: healthy
+      - menuItems: GREEK CHICKPEAS
+    - slot_was_set:
+        - food_info: healthy
+        - menuItems: GREEK CHICKPEAS
+    - action: action_specific_query
+    - intent: thank
+    - action: utter_grattitude
+    - action: utter_anything_else
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: bye withjob 2
+  steps:
+    - action: utter_anything_else
+    - intent: affirm
+    - action: action_form_job
+    - intent: unavailable_feature
+    - action: utter_feature_unavailable
+    - action: utter_anything_else
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: feature unavailable
+  steps:
+    - intent: unavailable_feature
+    - action: utter_feature_unavailable
+
+- story: thank you flow 2
+  steps:
+    - intent: thank
+    - action: utter_grattitude
+    - action: utter_anything_else
+    - or:
+        - intent: stop
+        - intent: deny
+    - action: utter_happy
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: job
+  steps:
+    - intent: ask_job
+    - action: action_form_job

@@ -1,0 +1,53 @@
+serial_no,Item_name,Category,Beef_free,Nuts_free,Dairy_free,Gluten_free,fish_shellfish_free,Calories,Vegan_friendly,Units_sold,Allergen_list
+2,HOUSE SALAD,salad,1,1,0,0,1,270,0,46,"dairy,gluten"
+3,HAIL CAESAR,salad,0,1,0,0,0,560,0,54,"dairy, fish, eggs, gluten"
+4,TRADITIONAL POTATO,salad,1,1,1,1,1,110,0,23,eggs
+6,FOREST MUSHROOM SOUP WITH GARLIC TOAST,soup,1,1,0,0,1,200,0,65,"Dairy,gluten"
+7,CREAM OF TOMATO WITH BAKED CARROT CRISPS,soup,1,1,0,1,1,195,0,46,Dairy
+8,Chicken soup with croutons,soup,1,1,0,0,1,304,0,34,"Dairy,gluten"
+10,BBQ BACON CHICKEN SANDWICH,burger,0,1,0,0,1,535,0,78,"beef,dairy,gluten"
+11,CAPRESE ,burger,1,1,0,0,1,437,0,67,"Dairy,gluten"
+12,BACON CHEDDAR BURGER,burger,0,1,0,0,1,885,0,84,"Dairy,Beef,gluten"
+14,CHEDDAR & MUSHROOM BURGER,burger,1,1,0,0,1,398,0,56,"Dairy,gluten"
+15,NASHVILLE HOT Veggie BURGER ,burger,1,1,1,0,1,258,0,48,"Dairy,gluten"
+16,CHICKEN SPINOCCOLI PASTA,pasta,1,1,0,0,1,337,0,89,"Dairy,eggs,gluten"
+17,SHRIMP SCAMPI,pasta,1,1,0,0,0,518,0,96,"Dairy,eggs,gluten,fish"
+18,VEGGIE LASAGNA,pasta,1,0,0,0,1,211,0,87,"Dairy,nuts,eggs,gluten"
+19,DEEP DISH MAC & CHEESE,pasta,1,1,0,0,1,511,0,95,"Dairy,eggs,gluten"
+20,CITY WORKS,pizza,0,1,0,0,1,330,0,109,"Dairy,Beef,gluten"
+21,SUPERONI,pizza,0,1,0,0,1,540,0,118,"Dairy,Beef,gluten"
+22,CHEESE PLEASE!,pizza,0,1,0,0,1,692,0,99,"Dairy,beef,gluten"
+23,SPICY HAWAIIAN,pizza,1,1,0,0,1,548,0,102,"Dairy,gluten"
+24,MARGHERITA,pizza,1,1,0,0,1,718,0,95,"Dairy,gluten"
+25,BBQ CHICKEN,pizza,1,1,0,0,1,390,0,97,"Dairy,gluten"
+26,TACO,pizza,0,1,0,0,1,274,0,100,"Dairy,Beef,gluten"
+27,Muffin,dessert,1,1,0,0,1,187,0,88,"Dairy,eggs,gluten"
+28,Bagel with Cream Cheese,dessert,1,1,0,0,1,149,0,85,"Dairy,eggs,gluten"
+30,Fruit Tart,dessert,1,1,1,0,1,352,0,100,"eggs,gluten"
+31,Chocolate Éclair,dessert,1,1,0,0,1,247,0,115,"Dairy,eggs,gluten"
+32,Strawberry Cream Puff,dessert,1,1,0,0,1,377,0,105,"Dairy,eggs,gluten"
+33,Apple pie,dessert,1,0,1,0,1,276,0,120,"Nuts,eggs,gluten"
+37,Chai,beverage,1,1,0,1,1,25,0,123,Dairy
+38,Strawberry slushie,beverage,1,1,1,1,1,290,0,110,None
+39,Hot Chocolate,beverage,1,1,0,1,1,431,0,130,dairy
+41,Fruit Smoothie,beverage,1,1,0,1,1,366,0,100,Dairy
+49,Classic Cappuccino,beverage,1,1,0,1,1,120,0,122,Dairy
+50,Cappuccino,beverage,1,1,0,1,1,122,0,120,Dairy
+51,Mocha Latte,beverage,1,1,0,1,1,208,0,128,Dairy
+52,Caramel Latte,beverage,1,1,0,1,1,171,0,130,Dairy
+53,Vanilla Latte,beverage,1,1,0,1,1,130,0,126,Dairy
+1,GREEK CHICKPEAS,salad,1,1,1,1,1,400,1,18,None
+5,BROCCOLI QUINOA TABBOULEH,salad,1,1,1,1,1,310,1,73,none
+9,Pumpkin soup,soup,1,0,1,1,1,149,1,36,nuts
+13,CLASSIC BEYOND BURGER,burger,1,1,1,0,1,188,1,76,gluten
+29,Cinnamon Roll,dessert,1,1,1,0,1,136,1,90,gluten
+34,Hot Tea,beverage,1,1,1,1,1,37,1,90,None
+36,Iced Tea,beverage,1,1,1,1,1,262,1,125,None
+40,Lemonade,beverage,1,1,1,1,1,110,1,90,None
+42,Orange Juice,beverage,1,1,1,1,1,135,1,115,None
+43,Jungle Juice,beverage,1,1,1,1,1,230,1,123,None
+44,Pepsi,beverage,1,1,1,1,1,150,1,140,None
+45,Sprite,beverage,1,1,1,1,1,140,1,128,None
+46,Fanta,beverage,1,1,1,1,1,278,1,117,None
+47,Mountain dew,beverage,1,1,1,1,1,280,1,120,None
+48,Espresso,beverage,1,1,1,1,1,9,1,139,None

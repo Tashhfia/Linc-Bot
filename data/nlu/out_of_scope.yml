@@ -1,0 +1,195 @@
+version: "2.0"
+nlu:
+- intent: out_of_scope/non_english
+  examples: |
+    - Wie fange ich mit Rasa an?
+    - hilf mir beim start
+    - tschüssikowski
+    - ¿Qué pasa?
+    - ça va ?
+    - como te llamas
+    - wer bist Du?
+    - como inicio en rasa
+    - come stai?
+    - como estas
+    - de donde eres
+    - de que lugar eres?
+    - epdi iruka
+    - eres humana
+    - kalhmera sara ti kaneis
+    - kannst du auch deutsch?
+    - kannst du dies auch auf deutsch?
+    - oui je besoine de l'aide
+    - que puedes hacer?
+    - tu parles francais?
+    - tudo bom
+    - tu pagal
+    - kannst du mir helfen
+    - tu kaisi he
+    - こにちは
+    - 日本語分かる？
+    - chào
+    - 你好
+    - 呵呵
+    - 我该如何使用
+    - 你懂中文吗？
+    - 您好
+    - 你叫什么名字
+    - 你是谁
+    - 中文
+    - kya hindi me bat kar sakate ho
+    - Dumme sara
+    - αστεία λές
+    - rasa codigo abierto
+    - 卧槽
+    - adakah saya bercakap dengan bot?
+    - adakah anda bot?
+    - boleh cakap melayu?
+    - awak cakap melayu?
+    - Dumh robot 🤬🤬
+- intent: out_of_scope/other
+  examples: |
+    - What is 2 + 2?
+    - Who's the US President?
+    - what is gravity?
+    - what is the color of my eyes?
+    - what is the meaning of life?
+    - i want a pet
+    - i need to adopt a pet zebra
+    - I am asking you an out of scope question
+    - 4 + 2 = ?
+    - Can I ask you questions first?
+    - Can I die
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you please send me an grab
+    - can you call a grab
+    - can you book me a grab
+    - book me a grab
+    - Do I have to accept?
+    - Have we met before?
+    - I already told you! I'm a shitmuncher
+    - I am User
+    - I am an opioid addic
+    - I need a girl friend!
+    - I wan to buy a plane
+    - I wanna marry you
+    - I want a new laptop
+    - I want book a hotel
+    - I want to die
+    - I want to use pipe
+    - I will check
+    - What is your hobbies?
+    - What makes you better than a human?
+    - What's 1 + 1?
+    - What's do YouTube do
+    - Where am I right now?
+    - Where am I?
+    - Who ?
+    - Who are your customers
+    - Why don’t you answer?
+    - better than you
+    - book a ticket
+    - but I just told you that :(
+    - but if rasa is open source why do you have a sales team
+    - connect to alexa
+    - do you want to marry me?
+    - docs
+    - doctor
+    - everything
+    - example of a chatbot
+    - genocide
+    - get me a club mate
+    - give me a girl friend
+    - go back
+    - google?
+    - great, I'd like to buy a house
+    - hang on let me find it
+    - book grab
+    - help with my life
+    - hey little mama let em whisper in your ear
+    - hey, I contacted you a couple of days ago but didn't get any response, any news?
+    - how are the kids
+    - how do you learn
+    - how long have you been online?
+    - i am not a developer but need this for business
+    - i told you already
+    - i wanna party
+    - i want more of you in my life!
+    - i want to buy a roomba for my grandson
+    - i want to find new friends
+    - i want to find out what you can build with rasa
+    - i want to fly
+    - i want to know current situtation in pakistan
+    - search wikipedia
+    - silly bot
+    - sing me a song
+    - so, I'm helping right now to training you?
+    - someone call the police i think the bot died
+    - sorry, i cannot rephrase
+    - tell me more about next best action
+    - that doesn't sound like a joke
+    - that link doesn't work!
+    - the one that is better than you
+    - tricked  ya
+    - 18;30
+    - 6 m
+    - tasa
+    - turn off my stove
+    - wait a bit i am still reading
+    - what about wheather
+    - what are contextual AI assistants and how different are they from chatbots?
+    - what does your soul feel my friend
+    - what films do you like
+    - what is a discourse?
+    - what is a mascot
+    - what is adlingo
+    - what is differance between bot and mascot?
+    - what is evolution ?
+    - what is the capital of delhi
+    - what is the capital of india
+    - what is the current petrol price
+    - what is the day ?
+    - what is the real use case where we can use this one
+    - what's your wife doing this weekend
+    - when is the next train is coming?
+    - where do i get install files for mac?
+    - where is Oslo?
+    - where is mexico?
+    - wheres the party?
+    - which city are you talking about?
+    - which email
+    - which email should i send to ?
+    - which file is created first while developing chat bot
+    - who are they?
+    - who is the MD of samsung bangalore ?
+    - who is the president of india ?
+    - who is your favourite robot?
+    - who let the dog out
+    - who was hitler
+    - who's Bill Gates?
+    - sfasd
+    - asdkjasdhjkasd
+    - j  bhbhjra
+    - tashfia@@tes.com
+    - ddfds@.com
+    - .kk
+    - .sdd
+    - dfs.gg
+    - tawd.com
+    - tw.com
+    - re.test.com
+    - ww@@sds.com
+    - Sevit
+    - Convold
+    - siswa.kk
+    - Imsomed
+    - Authengreers
+    - what is your problem
+    - whats your problem
+    - you cant do anything
+    - 20hrs: 30 mins 
+    - 20hrs: 30 mins
+    - Is this a scam
+    - Dumb robot cant show me a borgir 🤬🤬
+
