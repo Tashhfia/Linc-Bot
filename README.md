@@ -1,4 +1,6 @@
 # Linc-Bot
+⚠️ **Note: This project was built using Rasa v3.x. Rasa has since released newer versions with significant changes.**
+
 **Linc-Bot** was built using the [rasa opensource framework](https://rasa.com/) to assist users in the restaurant domain.
  
 ## Features
@@ -9,3 +11,5 @@ delete reservation.
 specific menu query. 
 - Display menu. 
 - Handle human handoff requests. 
+
+
